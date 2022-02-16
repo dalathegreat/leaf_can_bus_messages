@@ -41,13 +41,13 @@ Actively asking the different control units for info is another thing. The datab
 |  INVERTER/MC  |     0x784     |     0x78C     |
 |  M&A (Meter)  |     0x743     |     0x763     |
 |     HVAC      |     0x744     |     0x764     |
-|     BRAKE     |     0x70E     |               |
+|     BRAKE     |     0x70E     |     0x70F     |
 |      VSP      |     0x73F     |     0x761     |
-|      EPS      |     0x742     |               |
-|      TCU      |     0x746     |               |
-|   Multi AV    |     0x747     |               |
-|   IPDM E/R    |     0x74D     |               |
-|    AIRBAG     |     0x752     |               |
+|      EPS      |     0x742     |     0x762     |
+|      TCU      |     0x746     |     0x783     |
+|   Multi AV    |     0x747     |     0x767     |
+|   IPDM E/R    |     0x74D     |     0x76D     |
+|    AIRBAG     |     0x752     |     0x772     |
 |    CHARGER    |     0x792     |     0x793     |
 |     SHIFT     |     0x79D     |     0x7BD     |
 |      AVM      |     0x7B7     |               |
