@@ -68,6 +68,16 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ DiagSomething3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ActiveFuelBars : 3|5@1+ (1,0) [0|12] "-" Vector__XXX
  SG_ ChargeMinutesRemaining : 2|11@0+ (1,0) [0|2047] "minutes" Vector__XXX
+ SG_ StartupDataUnknown1 m1 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StartupDataUnknown2 m2 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StartupDataUnknown3 m3 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_4_1 m1 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_4_2 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_4_3 m3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LB_HistData_HighLow_Volt_Tim_MIN m3 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
+ SG_ LB_HistData_HighLow_Volt_Tim_MAX m1 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
+ SG_ LB_HistData_HighLow_Volt_Tim_AVG m2 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
+ SG_ LB_HistData_Temp_WakeupPhase_4 m4 : 9|7@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1468 x5BC: 8 HVBAT
  SG_ LB_Remain_Capacity_GIDS : 7|10@0+ (1,0) [0|500] "gids" Vector__XXX
@@ -148,17 +158,11 @@ BO_ 1356 x54C: 8 HVAC
 BO_ 282 x11A: 8 VCM
  SG_ JoystickGearPosition : 4|4@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ CarOnOffStatus : 13|3@1+ (1,0) [0|0] "-" Vector__XXX
- SG_ Mulitplexor M : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StartupDataUnknown0 m0 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StartupDataUnknown1 m1 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StartupDataUnknown2 m2 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StartupDataUnknown3 m3 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MPRUN_11A_1 : 48|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CRC_11A : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ SteeringWheelButton : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ HeartbeatVCM : 24|8@1+ (1,0) [85|170] "" Vector__XXX
- SG_ Unknown_11A_4_0 m0 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_11A_4_1 m1 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_11A_4_2 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_11A_4_3 m3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MPRUN_11A_2 : 38|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ECOselected : 12|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 468 x1D4: 8 VCM
@@ -168,6 +172,7 @@ BO_ 468 x1D4: 8 VCM
  SG_ Relay_Plus_Output_Status : 46|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ CRC_1D4 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ ChargeStatus : 48|8@1+ (1,0) [0|255] "MODEMASK" Vector__XXX
+ SG_ UnknownBits_1D4 : 41|2@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 498 x1F2: 8 VCM
  SG_ CommandedChargePower : 1|10@0+ (1,0) [0|0] "" Vector__XXX
@@ -194,16 +199,13 @@ BO_ 1355 x54B: 8 HVAC
  SG_ CCButtonPress : 56|8@1+ (1,0) [0|0] "0/1" Vector__XXX
 
 BO_ 1472 x5C0: 8 HVBAT
- SG_ LB_Historical_Data_Swich_Flag M : 6|2@1+ (1,0) [0|3] "mux" Vector__XXX
+ SG_ LB_Historical_Data_Swich_Flag M : 0|3@1+ (1,0) [0|6] "mux" Vector__XXX
  SG_ LB_Heating_Start_Send_Request : 5|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ LB_Heating_Stop_Send_Request : 4|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ Batt_Heater_Mail_Send_Request : 8|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ LB_HEATEXIST : 32|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ LB_NextWakeupTimeForBatterHeater : 48|5@1+ (1,0) [0|1800] "minutes" Vector__XXX
  SG_ LB_Diagnosis_Trouble_Code : 56|8@1+ (1,0) [0|255] "DTC" Vector__XXX
- SG_ LB_HistData_HighLow_Volt_Tim_MIN m3 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
- SG_ LB_HistData_HighLow_Volt_Tim_MAX m1 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
- SG_ LB_HistData_HighLow_Volt_Tim_AVG m2 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
  SG_ LB_HistData_Temp_WakeupPhase_MIN m3 : 9|7@1+ (1,-40) [-40|86] "degC" Vector__XXX
  SG_ LB_HistData_Temp_WakeupPhase_MAX m1 : 9|7@1+ (1,-40) [-40|86] "degC" Vector__XXX
  SG_ LB_HistData_Temp_WakeupPhase_AVG m2 : 9|7@1+ (1,-40) [-40|86] "degC" Vector__XXX
@@ -422,6 +424,12 @@ Example:
 0x09 FE
 0000 1001 1111 1110
 001 1111 1110 = 510min";
+CM_ SG_ 3221225472 StartupDataUnknown1 "Activity only during startup, then holds a constant value for each channel";
+CM_ SG_ 3221225472 StartupDataUnknown2 "Activity only during startup, then holds a constant value for each channel";
+CM_ SG_ 3221225472 StartupDataUnknown3 "Activity only during startup, then holds a constant value for each channel";
+CM_ SG_ 3221225472 LB_HistData_HighLow_Volt_Tim_MIN "LB_Historical_Data_High_or_Low_Voltage_Times";
+CM_ SG_ 3221225472 LB_HistData_HighLow_Volt_Tim_MAX "LB_Historical_Data_High_or_Low_Voltage_Times";
+CM_ SG_ 3221225472 LB_HistData_HighLow_Volt_Tim_AVG "LB_Historical_Data_High_or_Low_Voltage_Times";
 CM_ BO_ 1468 "Lithium Battery Controller (100ms)";
 CM_ SG_ 1468 LB_Remain_Capacity_GIDS "0-281 for 24kWh, 0-363 for 30kWh, 0-498 for 40kWh, 0-775 for 62kWh
 1 LSB = 80WH
@@ -544,11 +552,8 @@ CM_ BO_ 282 "Vehicle Control Module (10ms)
 
 Shift controller module for 2011-2012 ZE0";
 CM_ SG_ 282 JoystickGearPosition "(MSBits selected gear: 4 for D/B, 3 for N, 2 for R,0 for Parked)";
-CM_ SG_ 282 Mulitplexor "0, 1, 2, 3";
-CM_ SG_ 282 StartupDataUnknown0 "Activity only during startup, then holds a constant value for each channel";
-CM_ SG_ 282 StartupDataUnknown1 "Activity only during startup, then holds a constant value for each channel";
-CM_ SG_ 282 StartupDataUnknown2 "Activity only during startup, then holds a constant value for each channel";
-CM_ SG_ 282 StartupDataUnknown3 "Activity only during startup, then holds a constant value for each channel";
+CM_ SG_ 282 MPRUN_11A_1 "0, 1, 2, 3";
+CM_ SG_ 282 CRC_11A "Activity only during startup, then holds a constant value for each channel";
 CM_ SG_ 282 SteeringWheelButton "00,04,80 observed here";
 CM_ SG_ 282 HeartbeatVCM "55,AA (alternating between these two values, heartbeat?)
 01010101
@@ -591,9 +596,6 @@ CM_ SG_ 1472 LB_Diagnosis_Trouble_Code "Up to 2 error codes are indicated concur
 
 Start-up restriction by LB_DTC:
 Wait on error stop mode and not to start-up when LB_DTC=153~200 is received during system start-up or operation.";
-CM_ SG_ 1472 LB_HistData_HighLow_Volt_Tim_MIN "LB_Historical_Data_High_or_Low_Voltage_Times";
-CM_ SG_ 1472 LB_HistData_HighLow_Volt_Tim_MAX "LB_Historical_Data_High_or_Low_Voltage_Times";
-CM_ SG_ 1472 LB_HistData_HighLow_Volt_Tim_AVG "LB_Historical_Data_High_or_Low_Voltage_Times";
 CM_ SG_ 1472 LB_HistData_Temp_WakeupPhase_MIN "LB_Historical_Data_Temperature_Wakeup_Phase";
 CM_ SG_ 1472 LB_HistData_Temp_WakeupPhase_MAX "LB_Historical_Data_Temperature_Wakeup_Phase";
 CM_ SG_ 1472 LB_HistData_Temp_WakeupPhase_AVG "LB_Historical_Data_Temperature_Wakeup_Phase";
@@ -610,7 +612,7 @@ LB_Historical_Data_Integrated_Current";
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffMIN "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient Dala: Trending MIN/MAX/AVG is strange. MAX/MIN sits at 100, AVG sits at 99";
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffMAX "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient";
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffAVG "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient";
-CM_ SG_ 1472 LB_HistData_Cell_Voltage_MIN "Dala: Trending MIN/MAX/AVG is strange. AVG/MIN sits round 3700mV, MAX sits at 2100mV";
+CM_ SG_ 1472 LB_HistData_Cell_Voltage_MIN "";
 CM_ BO_ 1290 "VCM relay from A/C Auto Amp and AC Pressor Sensor (which is measured directly from VCM) (100ms)
 
 Message is identical on EV CAN and CAR CAN";
@@ -765,7 +767,7 @@ VAL_ 498 PCS_Connector_Detection 0 "other" 1 "Vehicle-to-Home mode" ;
 VAL_ 1355 ClimateControlStatus1 16 "CC On" 17 "CC Off" 0 "CC On" 1 "CC Off" ;
 VAL_ 1355 ClimateVentModeTarget 128 "CC OFF" 136 "Face only" 144 "Face/Feet" 152 "Feet only" 160 "Feet/Defrost" 168 "Defrost only" ;
 VAL_ 1355 ClimateVentModeIntake 9 "Recirculate" 18 "Fresh air" 146 "Defrost" ;
-VAL_ 1472 LB_Historical_Data_Swich_Flag 0 "Not Calculated" 1 "Maximum Data" 2 "Average Data" 3 "Minimum Data" ;
+VAL_ 1472 LB_Historical_Data_Swich_Flag 0 "Not Calculated" 1 "Maximum Data" 2 "Average Data" 3 "Minimum Data" 4 "?" 5 "?" 6 "?" ;
 VAL_ 1472 Batt_Heater_Mail_Send_Request 0 "No request" 1 "Mail send request" ;
 VAL_ 1472 LB_HEATEXIST 0 "Without Battery Heating" 1 "With Battery Heating" ;
 VAL_ 1291 DiagMuxOn_VCM 0 "Storage of CAN mute/absent failures not authorized" 1 "Storage of CAN mute/absent failures" ;
