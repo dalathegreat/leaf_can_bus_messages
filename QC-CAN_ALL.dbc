@@ -97,19 +97,24 @@ BO_ 1792 x700: 8 Vehicle
  SG_ AutomakerCode : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
  SG_ OptionalContent : 8|56@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 272 x110: 8 Vector__XXX
+BO_ 272 x110: 8 Vehicle
+ SG_ DynamicControlStatus : 0|1@1+ (1,0) [0|0] "status" Vector__XXX
+
+BO_ 280 x118: 8 QuickChargeStation
+ SG_ DynamicControl : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UnknownBit : 48|1@1+ (1,0) [0|0] "" Vector__XXX
 
 
 
-CM_ BO_ 256 "100ms";
+CM_ BO_ 256 "100ms Charge parameters";
 CM_ SG_ 256 MaximumBatteryVoltage "The maximum battery voltage value at the vehicle inlet terminals, at which the station stops charging to protect the vehicle battery";
 CM_ SG_ 256 ConstantOfChargingRateIndication "Fixed value for charging rate indication which is the maximum charging rate (100%) of vehicle battery";
-CM_ BO_ 257 "100ms";
+CM_ BO_ 257 "100ms Calculated charge time and SoC";
 CM_ SG_ 257 MaxChargingTime10sBit "Maximum charging time permited by EV, set by10s";
 CM_ SG_ 257 MaxChargingTime1minBit "Maximum charging time permited by EV, set by minute";
 CM_ SG_ 257 EstimatedChargingTime "Estimated remaining time before the end of charging calculated by EV (Added in CHAdeMO1.0.1)";
 CM_ SG_ 257 RatedBatteryCapacity "Rated capacity of battery (Added in CHAdeMO1.0.1)";
-CM_ BO_ 258 "100ms";
+CM_ BO_ 258 "100ms Signals for error marking";
 CM_ SG_ 258 ControlProtocolNumberEV "Software version of control protocol to which EV corresponds";
 CM_ SG_ 258 TargetBatteryVoltage "Target charging voltage at the vehicle inlet terminals";
 CM_ SG_ 258 ChargingCurrentRequest "Current value requested by EV during charging";
@@ -124,12 +129,12 @@ CM_ SG_ 258 StatusChargingSystem "Status flag indicating malfunction caused by E
 CM_ SG_ 258 StatusVehicleShifterPosition "Status flag indicating the shift lever position ";
 CM_ SG_ 258 StatusVehicleCharging "Status flag indicating charge permission status of EV";
 CM_ SG_ 258 ChargingRate "Charging rate of vehicle battery";
-CM_ BO_ 264 "100ms";
+CM_ BO_ 264 "100ms Charge parameters";
 CM_ SG_ 264 EVContactorWeldingDetection "Identifier indicating whether or not the station deals with EV contactor welding detection";
 CM_ SG_ 264 AvailableOutputVoltage "Maximum output voltage value at the vehicle connector terminals";
 CM_ SG_ 264 AvailableOutputCurrent "Maximum output current value of the station";
 CM_ SG_ 264 ThresholdVoltage "Threshold voltage to stop the charging process in order to protect vehicle battery";
-CM_ BO_ 265 "100ms";
+CM_ BO_ 265 "100ms Signals for error marking";
 CM_ SG_ 265 ControlProtocolNumberQC "Software version number of control protocol or charging sequences that the station deal with";
 CM_ SG_ 265 OutputVoltage "Supply voltage value of the output circuit in the station";
 CM_ SG_ 265 OutputCurrent "Supply current value of the output circuit in the station";
@@ -147,7 +152,12 @@ CM_ SG_ 512 MaxRemainingCapacityForCharging "(Optional)";
 CM_ BO_ 513 "100ms (For V2X)";
 CM_ SG_ 513 ApproxDischargeCompletionTime "(Optional)";
 CM_ SG_ 513 AvailableVehicleEnergy "(Optional)";
+CM_ BO_ 1792 "100ms";
 CM_ SG_ 1792 OptionalContent "Content conform to each manufacturer's optional specification";
+CM_ BO_ 272 "100ms (Chademo v2.0 only)";
+CM_ SG_ 272 DynamicControlStatus "When this bit is 1 dynamic control is allowed. Dynamic Control = Charging station can increase of decrease \"available output current\" during charging.";
+CM_ BO_ 280 "100ms (Chademo v2.0 only)";
+CM_ SG_ 280 DynamicControl "Dynamic charging is supported on Chademo v2.0";
 VAL_ 258 FaultBatteryVoltageDeviation 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultHighBatteryTemperature 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultBatteryCurrentDeviation 0 "Normal" 1 "Fault" ;
@@ -165,4 +175,6 @@ VAL_ 265 FaultBatteryIncompatibility 0 "Compatible" 1 "Not compatible" ;
 VAL_ 265 StatusVehicleConnectorLock 0 "Unlocked" 1 "Locked" ;
 VAL_ 265 FaultStationMalfunction 0 "Normal" 1 "Fault" ;
 VAL_ 265 StatusStation 0 "Standby" 1 "Charging" ;
+VAL_ 272 DynamicControlStatus 0 "Disabled" 1 "Enabled" ;
+VAL_ 280 DynamicControl 0 "Disabled" 1 "Enabled" ;
 
