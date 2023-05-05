@@ -37,7 +37,7 @@ BU_: Vehicle QuickChargeStation
 
 
 BO_ 256 x100: 8 Vehicle
- SG_ MaximumBatteryVoltage : 39|16@0+ (1,0) [0|600] "V" Vector__XXX
+ SG_ MaximumBatteryVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
  SG_ ConstantOfChargingRateIndication : 48|8@1+ (1,0) [0|100] "%" Vector__XXX
  SG_ MinimumChargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
 
@@ -49,7 +49,7 @@ BO_ 257 x101: 8 Vehicle
 
 BO_ 258 x102: 8 Vehicle
  SG_ ControlProtocolNumberEV : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
- SG_ TargetBatteryVoltage : 15|16@0+ (1,0) [0|600] "V" Vector__XXX
+ SG_ TargetBatteryVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
  SG_ ChargingCurrentRequest : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
  SG_ FaultBatteryVoltageDeviation : 36|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ FaultHighBatteryTemperature : 35|1@1+ (1,0) [0|1] "status" Vector__XXX
@@ -84,7 +84,7 @@ BO_ 265 x109: 8 QuickChargeStation
 
 BO_ 512 x200: 8 Vehicle
  SG_ MaximumDischargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
- SG_ MinimumDischargeVoltage : 39|16@0+ (1,0) [0|600] "V" Vector__XXX
+ SG_ MinimumDischargeVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
  SG_ MinimumBatteryDischargeLevel : 48|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ MaxRemainingCapacityForCharging : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
@@ -96,6 +96,8 @@ BO_ 513 x201: 8 Vehicle
 BO_ 1792 x700: 8 Vehicle
  SG_ AutomakerCode : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
  SG_ OptionalContent : 8|56@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 272 x110: 8 Vector__XXX
 
 
 
