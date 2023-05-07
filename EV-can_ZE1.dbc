@@ -78,6 +78,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ LB_HistData_HighLow_Volt_Tim_MAX m1 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
  SG_ LB_HistData_HighLow_Volt_Tim_AVG m2 : 0|4@1+ (1,0) [0|10] "times" Vector__XXX
  SG_ LB_HistData_Temp_WakeupPhase_4 m4 : 9|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NewSignal_0016 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1468 x5BC: 8 HVBAT
  SG_ LB_Remain_Capacity_GIDS : 7|10@0+ (1,0) [0|500] "gids" Vector__XXX
@@ -346,15 +347,34 @@ BO_ 1573 x625: 6 Vector__XXX
  SG_ Unknown_625_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_625_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1210 x4BA: 8 Vector__XXX
- SG_ Unknown_4BA_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 1210 x4BA: 8 OBCpd
+ SG_ DynamicControlStatus : 0|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ HighCurrentControlStatus : 1|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ HighVoltageControlStatus : 2|1@1+ (1,0) [0|1] "status" Vector__XXX
 
-BO_ 1211 x4BB: 8 Vector__XXX
- SG_ Unknown_4BB_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 1211 x4BB: 8 OBCpd
+ SG_ V2HchargeDischargeSequenceNum : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ApproxDischargeCompletionTime : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ AvailableVehicleEnergy : 31|16@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 968 x3C8: 8 Vector__XXX
+BO_ 968 x3C8: 8 OBCpd
+ SG_ EVContactorWeldingDetection : 0|8@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AvailableOutputVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ AvailableOutputCurrent : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ ThresholdVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
 
-BO_ 969 x3C9: 8 Vector__XXX
+BO_ 969 x3C9: 8 OBCpd
+ SG_ ControlProtocolNumberQC : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
+ SG_ OutputVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ OutputCurrent : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ StatusChargerStopControl : 45|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultChargingSystemMalfunction : 44|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultBatteryIncompatibility : 43|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusVehicleConnectorLock : 42|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultStationMalfunction : 41|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusStation : 40|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ RemainingChargingTime10sBit : 48|8@1+ (10,0) [0|2540] "seconds" Vector__XXX
+ SG_ RemainingChargingTime1minBit : 56|8@1+ (1,0) [0|255] "minutes" Vector__XXX
 
 BO_ 459 x1CB: 8 Vector__XXX
  SG_ Unknown_1CB_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -364,15 +384,21 @@ BO_ 459 x1CB: 8 Vector__XXX
 BO_ 1209 x4B9: 1 Vector__XXX
  SG_ Unknown_4B9_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 956 x3BC: 8 Vector__XXX
- SG_ NewSignal_0032 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0033 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0034 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0035 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0036 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0037 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0038 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NewSignal_0039 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 956 x3BC: 8 OBCpd
+ SG_ ControlProtocolNumberEV : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
+ SG_ TargetBatteryVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ ChargingCurrentRequest : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ FaultBatteryVoltageDeviation : 36|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultHighBatteryTemperature : 35|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultBatteryCurrentDeviation : 34|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultBatteryUndervoltage : 33|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ FaultBatteryOvervoltage : 32|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusNormalStopRequest : 44|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusVehicle : 43|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusChargingSystem : 42|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusVehicleShifterPosition : 41|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ StatusVehicleCharging : 40|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ ChargingRate : 48|8@1+ (1,0) [0|100] "%" Vector__XXX
 
 BO_ 1390 x56E: 1 TCU
  SG_ Unknown_56E_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -384,6 +410,29 @@ BO_ 1459 x5B3: 5 Vector__XXX
 BO_ 1541 x605: 1 Vector__XXX
 
 BO_ 1543 x607: 1 Vector__XXX
+
+BO_ 953 x3B9: 8 OBCpd
+ SG_ MaximumBatteryVoltage : 40|16@1+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ ConstantOfChargingRateIndication : 48|8@1+ (1,0) [0|100] "%" Vector__XXX
+ SG_ MinimumChargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
+
+BO_ 958 x3BE: 8 OBCpd
+ SG_ MaximumDischargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ MinimumDischargeVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ MinimumBatteryDischargeLevel : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MaxRemainingCapacityForCharging : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1216 x4C0: 8 OBCpd
+
+BO_ 1212 x4BC: 8 OBCpd
+ SG_ AutomakerCode : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
+ SG_ OptionalContent : 8|56@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 955 x3BB: 8 OBCpd
+ SG_ MaxChargingTime10sBit : 8|8@1+ (10,0) [0|2540] "seconds" Vector__XXX
+ SG_ MaxChargingTime1minBit : 16|8@1+ (1,0) [0|255] "minutes" Vector__XXX
+ SG_ EstimatedChargingTime : 24|8@1+ (1,0) [0|254] "minutes" Vector__XXX
+ SG_ RatedBatteryCapacity : 47|16@0+ (0.11,0) [0|100] "kWh" Vector__XXX
 
 
 
@@ -718,15 +767,47 @@ CM_ SG_ 1477 Unknown_5C5_2 "Static in logs";
 CM_ SG_ 1477 Unknown_5C5_3 "Static in logs";
 CM_ BO_ 1485 "??? (5000ms)";
 CM_ BO_ 1573 "??? (100ms)";
-CM_ BO_ 1210 "??? (Only present while quickcharging)";
-CM_ BO_ 1211 "??? (Only present while quickcharging)";
-CM_ BO_ 968 "??? (Only present while quickcharging)";
-CM_ BO_ 969 "??? (Only present while quickcharging)";
+CM_ BO_ 1210 "100ms (Mirrored from QC-CAN, ID 0x110)";
+CM_ SG_ 1210 DynamicControlStatus "When this bit is 1 dynamic control is allowed. Dynamic Control = Charging station can increase of decrease \"available output current\" during charging.";
+CM_ BO_ 1211 "100ms (Mirrored from QC-CAN, ID 0x201)";
+CM_ SG_ 1211 ApproxDischargeCompletionTime "(Optional)";
+CM_ SG_ 1211 AvailableVehicleEnergy "(Optional)";
+CM_ BO_ 968 "100ms (Mirrored from QC-CAN, ID 0x108)";
+CM_ SG_ 968 EVContactorWeldingDetection "Identifier indicating whether or not the station deals with EV contactor welding detection";
+CM_ SG_ 968 AvailableOutputVoltage "Maximum output voltage value at the vehicle connector terminals. Raised to 1200 V max in Chademo 2.0";
+CM_ SG_ 968 AvailableOutputCurrent "Maximum output current value of the station";
+CM_ SG_ 968 ThresholdVoltage "Threshold voltage to stop the charging process in order to protect vehicle battery";
+CM_ BO_ 969 "100ms (Mirrored from QC-CAN, ID 0x109)";
+CM_ SG_ 969 ControlProtocolNumberQC "Software version number of control protocol or charging sequences that the station deal with";
+CM_ SG_ 969 OutputVoltage "Supply voltage value of the output circuit in the station. Raised to 1200 V max in Chademo 2.0";
+CM_ SG_ 969 OutputCurrent "Supply current value of the output circuit in the station";
+CM_ SG_ 969 StatusChargerStopControl "Status flag indicating whether or not the status proceeds with shutdown process";
+CM_ SG_ 969 FaultChargingSystemMalfunction "Status flag indicating whether or not there is a problem with EV, such as improper connection";
+CM_ SG_ 969 FaultBatteryIncompatibility "Status flag indicating the compatibility of vehicle battery with the output voltage of station";
+CM_ SG_ 969 StatusVehicleConnectorLock "Status flag indicating the electromagnetic lock status of the vehicle";
+CM_ SG_ 969 FaultStationMalfunction "Status flag indicating whether or not there is a malfunction caused by the station";
+CM_ SG_ 969 StatusStation "Status flag indicating the energy transfer from the station";
+CM_ SG_ 969 RemainingChargingTime10sBit "Remaining time before the end of charging (counted by 10 s)";
+CM_ SG_ 969 RemainingChargingTime1minBit "Remaining time before the end of charging (counted by minutes)";
 CM_ BO_ 459 "??? (10ms)";
 CM_ SG_ 459 PRUN_1CB "Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 459 CRC_1CB "CRC";
 CM_ BO_ 1209 "??? (500ms)";
-CM_ BO_ 956 "??? (Only present while quickcharging)";
+CM_ BO_ 956 "100ms (Mirrored from QC-CAN, ID 0x102)";
+CM_ SG_ 956 ControlProtocolNumberEV "Software version of control protocol to which EV corresponds";
+CM_ SG_ 956 TargetBatteryVoltage "Target charging voltage at the vehicle inlet terminals. Raised to 1200 V max in Chademo 2.0";
+CM_ SG_ 956 ChargingCurrentRequest "Current value requested by EV during charging";
+CM_ SG_ 956 FaultBatteryVoltageDeviation "Status flag indicating whether or not the vehicle battery voltage deviates from the output voltage measured by the station";
+CM_ SG_ 956 FaultHighBatteryTemperature "Status flag indicating whether or not the temperature of vehicle battery exceeds the maximum limit";
+CM_ SG_ 956 FaultBatteryCurrentDeviation "Status flag indicating whether or not the output current deviates from EV requested current";
+CM_ SG_ 956 FaultBatteryUndervoltage "Status flag indicating whether or not the vehicle battery voltage is less than the lower limit specified by EV";
+CM_ SG_ 956 FaultBatteryOvervoltage "Status flag indicating whether or not the vehicle battery voltage exceeds the maximum limit specified by EV";
+CM_ SG_ 956 StatusNormalStopRequest "Status flag indicating the request of EV to stop charging control";
+CM_ SG_ 956 StatusVehicle "Status flag indicating the EV contactor status";
+CM_ SG_ 956 StatusChargingSystem "Status flag indicating malfunction caused by EV or the station, and detected by EV";
+CM_ SG_ 956 StatusVehicleShifterPosition "Status flag indicating the shift lever position ";
+CM_ SG_ 956 StatusVehicleCharging "Status flag indicating charge permission status of EV";
+CM_ SG_ 956 ChargingRate "Charging rate of vehicle battery";
 CM_ BO_ 1390 "TCU (100ms) RemoteCommand message
 
 Only present on vehicles with TCU (Telematrics Control Unit).This message varies in length depending on which remote command that was requested. Possible commands include, Enable climate control, disable climate control, start charging, auto disable climate control, unlock doors and lock doors. See OVMS implementation for more detail";
@@ -738,6 +819,19 @@ CM_ SG_ 1459 Unknown_5B3_0 "8E in logs";
 CM_ SG_ 1459 Unknown_5B3_4 "80 in logs";
 CM_ BO_ 1541 "Bootup Message, appears once during power on (sent by ???)";
 CM_ BO_ 1543 "Bootup Message, appears once during power on (sent by ???)";
+CM_ BO_ 953 "100ms (Mirrored from QC-CAN, ID 0x100)";
+CM_ SG_ 953 MaximumBatteryVoltage "The maximum battery voltage value at the vehicle inlet terminals, at which the station stops charging to protect the vehicle battery. Raised to 1200 V in Chademo 2.0";
+CM_ SG_ 953 ConstantOfChargingRateIndication "Fixed value for charging rate indication which is the maximum charging rate (100%) of vehicle battery";
+CM_ BO_ 958 "100ms (Mirrored from QC-CAN, ID 0x200)";
+CM_ SG_ 958 MinimumBatteryDischargeLevel "Either sent as % or kWh";
+CM_ SG_ 958 MaxRemainingCapacityForCharging "(Optional)";
+CM_ BO_ 1212 "100ms (Mirrored from QC-CAN, ID 0x700)";
+CM_ SG_ 1212 OptionalContent "Content conform to each manufacturer's optional specification";
+CM_ BO_ 955 "100ms (Mirrored from QC-CAN, ID 0x101)";
+CM_ SG_ 955 MaxChargingTime10sBit "Maximum charging time permited by EV, set by10s";
+CM_ SG_ 955 MaxChargingTime1minBit "Maximum charging time permited by EV, set by minute";
+CM_ SG_ 955 EstimatedChargingTime "Estimated remaining time before the end of charging calculated by EV (Added in CHAdeMO1.0.1)";
+CM_ SG_ 955 RatedBatteryCapacity "Rated capacity of battery (Added in CHAdeMO1.0.1)";
 VAL_ 1468 LB_Remain_Cap_Segment_Swit_Flag 0 "Remaining capacity" 1 "Full capacity" ;
 VAL_ 1468 LB_Output_Power_Limit_Reason 0 "Normal" 1 "Capacity drop" 2 "LBC Malfunction" 3 "High temperature" 4 "Low temperature" 5 "reserved" 6 "reserved" 7 "reserved" ;
 VAL_ 1468 LB_Remain_Charge_Time_Condition 0 "Quickcharge" 5 "Normal Charge 6kW Full" 8 "Normal Charge 200V Full" 11 "Normal Charge 100V Full" 18 "Normal Charge 6kW 80%" 21 "Normal Charge 200V 80%" 24 "Normal Charge 100V 80%" ;
@@ -776,4 +870,24 @@ VAL_ 1291 Batt_Heater_Mail_Send_OK 0 "Mail send NG" 1 "Mail send OK" ;
 VAL_ 912 OBC_Status_AC_Voltage 0 "No Signal" 1 "100V" 2 "200V" 3 "Abnormal Wave" ;
 VAL_ 912 OBC_Flag_QC_Relay_On_Announcemen 1 "Announce OFF" 2 "Announce ON" ;
 VAL_ 912 OBC_Flag_QC_IR_Sensor 0 "Without" 1 "With" ;
+VAL_ 1210 DynamicControlStatus 0 "Disabled" 1 "Enabled" ;
+VAL_ 1210 HighCurrentControlStatus 0 "Disabled" 1 "Enabled" ;
+VAL_ 1210 HighVoltageControlStatus 0 "Disabled" 1 "Enabled" ;
+VAL_ 968 EVContactorWeldingDetection 0 "Not supported" 1 "Supporting vehicle welding detection" ;
+VAL_ 969 StatusChargerStopControl 0 "Operating" 1 "Shutdown or stop charging" ;
+VAL_ 969 FaultChargingSystemMalfunction 0 "Normal" 1 "Malfunction" ;
+VAL_ 969 FaultBatteryIncompatibility 0 "Compatible" 1 "Not compatible" ;
+VAL_ 969 StatusVehicleConnectorLock 0 "Unlocked" 1 "Locked" ;
+VAL_ 969 FaultStationMalfunction 0 "Normal" 1 "Fault" ;
+VAL_ 969 StatusStation 0 "Standby" 1 "Charging" ;
+VAL_ 956 FaultBatteryVoltageDeviation 0 "Normal" 1 "Fault" ;
+VAL_ 956 FaultHighBatteryTemperature 0 "Normal" 1 "Fault" ;
+VAL_ 956 FaultBatteryCurrentDeviation 0 "Normal" 1 "Fault" ;
+VAL_ 956 FaultBatteryUndervoltage 0 "Normal" 1 "Fault" ;
+VAL_ 956 FaultBatteryOvervoltage 0 "Normal" 1 "Fault" ;
+VAL_ 956 StatusNormalStopRequest 0 "No request" 1 "Request to stop" ;
+VAL_ 956 StatusVehicle 0 "EV contactor closed or during welding detection" 1 "EV contactor open or welding detection finished" ;
+VAL_ 956 StatusChargingSystem 0 "Normal" 1 "Fault" ;
+VAL_ 956 StatusVehicleShifterPosition 0 "Parked" 1 "Other position" ;
+VAL_ 956 StatusVehicleCharging 0 "Disabled" 1 "Enabled" ;
 
