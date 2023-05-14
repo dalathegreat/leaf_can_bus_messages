@@ -121,8 +121,9 @@ BO_ 474 x1DA: 8 INVmc
  SG_ MG_InputVoltage : 0|8@1+ (2,0) [0|508] "V" Vector__XXX
  SG_ MG_EffectiveTorque : 18|11@0- (0.5,0) [-274|274] "Nm" Vector__XXX
  SG_ MG_OutputRevolution : 39|15@0- (1,0) [-16382|16382] "rpm" Vector__XXX
- SG_ MG_CLOCK : 48|8@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ MG_CLOCK : 48|2@1+ (1,0) [0|3] "PRUN" Vector__XXX
  SG_ CRC_1DA : 56|8@1+ (1,0) [0|0] "CRC" Vector__XXX
+ SG_ MG_ErrorCodes : 50|6@1+ (1,0) [0|0] "status" Vector__XXX
 
 BO_ 1465 x5B9: 7 VCM
  SG_ ActiveFuelBars : 3|5@1+ (1,0) [0|12] "-" Vector__XXX
@@ -424,6 +425,11 @@ CM_ SG_ 474 MG_OutputRevolution "RNMG - Signed value, negative for reverse.
 Values 0x7fff and 0x7ffe are seen during turning on of car";
 CM_ SG_ 474 MG_CLOCK "Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 474 CRC_1DA "CRC";
+CM_ SG_ 474 MG_ErrorCodes "Contains info about error codes blocking inverter operation.
+Possible causes not identified yet, but good starting point:
+- HV missing (180V within 10s)
+- too high temperature
+- CAN messages not detected within 2s after poweron";
 CM_ BO_ 1465 "Vehicle Control Module (500ms) (Only env200 and USDM LEAF?)";
 CM_ SG_ 1465 ActiveFuelBars "From VCM->Cluster";
 CM_ SG_ 1465 ChargeMinutesRemaining "Minutes from 3kW charging estimate on dash.
