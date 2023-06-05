@@ -1,0 +1,106 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: BCM VSP STRG MA EPS AV AVM AIRBAG IPDMer BRAKE ABS VCM
+
+
+BO_ 2 x002: 5 STRG
+ SG_ SteeringAngle : 0|16@1- (1,0) [0|65535] "ddeg" Vector__XXX
+ SG_ SteeringAngleChangeRate : 23|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ Unknown_2_3 : 31|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ SteeringSensorHearbeat : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 384 x180: 8 VCM
+ SG_ Unknown_180_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_180_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MotorAmp : 23|12@0- (1,0) [0|0] "" Vector__XXX
+ SG_ MotorAmpAlternative : 27|12@0- (1,0) [0|0] "" Vector__XXX
+ SG_ ThrottlePosition : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ Unknown_180_5 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_180_6 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_180_7 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 640 x280: 8 MA
+ SG_ Unknown_280_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_280_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_280_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_280_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VehicleSpeedCluster : 39|16@0+ (0.01,0) [0|0] "km/h" Vector__XXX
+ SG_ Unknown_280_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_280_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 644 x284: 8 ABS
+ SG_ Wheel_Speed_FR : 7|16@0+ (0.005,0) [0|327] "km/h" Vector__XXX
+ SG_ Wheel_Speed_FL : 23|16@0+ (0.005,0) [0|327] "km/h" Vector__XXX
+ SG_ VehicleSpeedFromABS : 39|16@0+ (0.01,0) [0|0] "" Vector__XXX
+ SG_ Unknown_284_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_284_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 645 x285: 8 ABS
+ SG_ Wheel_Speed_RR : 7|16@0+ (0.005,0) [0|327] "km/h" Vector__XXX
+ SG_ Wheel_Speed_RL : 23|16@0+ (0.005,0) [0|327] "km/h" Vector__XXX
+ SG_ NotUsed_285_4_5 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_285_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_285_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 658 x292: 8 ABS
+ SG_ Unknown_292_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_292_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_292_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LeadAcidBatteryVoltage : 24|8@1+ (1,0) [0|150] "dV" Vector__XXX
+ SG_ Unknown_292_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_292_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FrictionBrakePressure : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Unknown_292_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1296 x510: 8 Vector__XXX
+ SG_ CounterUnknownSlow : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Unknown_510_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CounterUnknownFast : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ClimateControlActive : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ClimateControlPowerConsumption : 25|6@1+ (1,0) [0|0] "0.25kW" Vector__XXX
+ SG_ Unknown_510_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_510_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_510_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OutsideAmbientTemperature : 56|8@1+ (0.5,-40) [-40|87.5] "degC" Vector__XXX
+
+BO_ 1477 x5C5: 8 MA
+ SG_ Unknown_5C5_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Odometer : 15|24@0+ (1,0) [0|16777215] "km / m" Vector__XXX
+ SG_ Unknown_5C5_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5C5_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5C5_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5C5_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
