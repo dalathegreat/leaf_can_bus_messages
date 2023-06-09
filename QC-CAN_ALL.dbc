@@ -107,6 +107,10 @@ BO_ 280 x118: 8 QuickChargeStation
  SG_ HighCurrentControl : 1|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ HighVoltageControl : 2|1@1+ (1,0) [0|1] "" Vector__XXX
 
+BO_ 520 x208: 8 QuickChargeStation
+
+BO_ 521 x209: 8 QuickChargeStation
+
 
 
 CM_ BO_ 256 "100ms Charge parameters";
@@ -161,6 +165,8 @@ CM_ BO_ 272 "100ms (Chademo v2.0 only)";
 CM_ SG_ 272 DynamicControlStatus "When this bit is 1 dynamic control is allowed. Dynamic Control = Charging station can increase of decrease \"available output current\" during charging.";
 CM_ BO_ 280 "100ms (Chademo v2.0 only)";
 CM_ SG_ 280 DynamicControl "Dynamic charging is supported on Chademo v2.0";
+CM_ BO_ 520 "100ms (For V2X) ???";
+CM_ BO_ 521 "100ms (For V2X) ???";
 VAL_ 258 FaultBatteryVoltageDeviation 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultHighBatteryTemperature 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultBatteryCurrentDeviation 0 "Normal" 1 "Fault" ;
