@@ -40,6 +40,7 @@ BO_ 256 x100: 8 Vehicle
  SG_ MaximumBatteryVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
  SG_ ConstantOfChargingRateIndication : 48|8@1+ (1,0) [0|100] "%" Vector__XXX
  SG_ MinimumChargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
+ SG_ MinumumBatteryVoltage : 23|16@0+ (0.01,0) [0|600] "V" Vector__XXX
 
 BO_ 257 x101: 8 Vehicle
  SG_ MaxChargingTime10sBit : 8|8@1+ (10,0) [0|2540] "seconds" Vector__XXX
@@ -115,7 +116,8 @@ BO_ 521 x209: 8 QuickChargeStation
 
 CM_ BO_ 256 "100ms Charge parameters";
 CM_ SG_ 256 MaximumBatteryVoltage "The maximum battery voltage value at the vehicle inlet terminals, at which the station stops charging to protect the vehicle battery. Raised to 1200 V in Chademo 2.0";
-CM_ SG_ 256 ConstantOfChargingRateIndication "Fixed value for charging rate indication which is the maximum charging rate (100%) of vehicle battery";
+CM_ SG_ 256 ConstantOfChargingRateIndication "Fixed value for charging rate indication which is the maximum charging rate (100%) of vehicle battery. Should be fixed at 0x64 (100 %)";
+CM_ SG_ 256 MinumumBatteryVoltage "The minimum battery voltage for the vehicle. Added in later Chademo versions for V2X";
 CM_ BO_ 257 "100ms Calculated charge time and SoC";
 CM_ SG_ 257 MaxChargingTime10sBit "Maximum charging time permited by EV, set by10s";
 CM_ SG_ 257 MaxChargingTime1minBit "Maximum charging time permited by EV, set by minute";
@@ -167,6 +169,7 @@ CM_ BO_ 280 "100ms (Chademo v2.0 only)";
 CM_ SG_ 280 DynamicControl "Dynamic charging is supported on Chademo v2.0";
 CM_ BO_ 520 "100ms (For V2X) ???";
 CM_ BO_ 521 "100ms (For V2X) ???";
+VAL_ 258 ControlProtocolNumberEV 1 "?" 2 "?" 3 "Chademo v2.0" ;
 VAL_ 258 FaultBatteryVoltageDeviation 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultHighBatteryTemperature 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultBatteryCurrentDeviation 0 "Normal" 1 "Fault" ;
