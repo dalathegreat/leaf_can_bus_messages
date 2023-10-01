@@ -192,7 +192,7 @@ BO_ 1355 x54B: 8 HVAC
  SG_ CCButtonPress : 56|8@1+ (1,0) [0|0] "0/1" Vector__XXX
 
 BO_ 1449 x5A9: 8 VCM
- SG_ DiagSomething0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ECOmodeActive : 0|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ RangeInstrumentCluster : 15|12@0+ (0.2,0) [0|819] "km" Vector__XXX
  SG_ LowBattery : 16|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ CriticalBattery : 43|1@1+ (1,0) [0|0] "" Vector__XXX
@@ -494,7 +494,7 @@ CM_ SG_ 1355 CCButtonPress "Alternates after every CC button press, probably to 
 CM_ BO_ 1449 "Vehicle Control Module (100ms)
 
 This message appeared after recall/update in March 2012. Probably VCM to TCU for carwings (engineering data)";
-CM_ SG_ 1449 DiagSomething0 "Active during drive, FF charge";
+CM_ SG_ 1449 ECOmodeActive "Active during drive, FF charge";
 CM_ SG_ 1449 RangeInstrumentCluster "Taken from OVMS code. 0xFFF when charging";
 CM_ SG_ 1449 LowBattery "Low Battery (Message and tell-tale)";
 CM_ SG_ 1449 CriticalBattery "GOM Flash (critical battery)";
@@ -622,7 +622,7 @@ VAL_ 498 PCS_Connector_Detection 0 "other" 1 "Vehicle-to-Home mode" ;
 VAL_ 1355 ClimateControlStatus1 16 "CC On" 17 "CC Off" 0 "CC On" 1 "CC Off" ;
 VAL_ 1355 ClimateVentModeTarget 128 "CC OFF" 136 "Face only" 144 "Face/Feet" 152 "Feet only" 160 "Feet/Defrost" 168 "Defrost only" ;
 VAL_ 1355 ClimateVentModeIntake 9 "Recirculate" 18 "Fresh air" 146 "Defrost" ;
-VAL_ 1449 DiagSomething0 255 "Charging" ;
+VAL_ 1449 ECOmodeActive 2 "ECO On" 1 "ECO Off" 255 "Charging" ;
 VAL_ 1472 LB_Historical_Data_Swich_Flag 0 "Not Calculated" 1 "Maximum Data" 2 "Average Data" 3 "Minimum Data" ;
 VAL_ 1472 Batt_Heater_Mail_Send_Request 0 "No request" 1 "Mail send request" ;
 VAL_ 1472 LB_HEATEXIST 0 "Without Battery Heating" 1 "With Battery Heating" ;
