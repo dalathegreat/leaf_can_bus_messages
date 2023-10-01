@@ -85,8 +85,8 @@ BO_ 374 x176: 7 Vector__XXX
 BO_ 384 x180: 8 VCM
  SG_ Unknown_180_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_180_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MotorAmp : 23|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ MotorAmpAlternative : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MotorAmp : 23|12@0- (1,0) [0|0] "" Vector__XXX
+ SG_ MotorAmpAlternative : 27|12@0- (1,0) [0|0] "" Vector__XXX
  SG_ ThrottlePosition : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ Unknown_180_5 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_180_6 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
