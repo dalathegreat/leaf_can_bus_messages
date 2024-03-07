@@ -46,6 +46,19 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ Unknown_55A_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ RawTemperature2 : 55|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ GIDStoClusterMaybe : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ InverterVehicleSpeedSignal : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MotorVoltageSignal : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ InverterVehicleSpeedSignal2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MotorVoltageSignal2 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_551_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50A_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50A_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50D_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50D_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5B3_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5B3_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5B3_6 : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_510_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 2 x002: 5 STRG
  SG_ SteeringAngle : 7|16@0+ (1,0) [0|65535] "ddeg" Vector__XXX
@@ -73,14 +86,12 @@ BO_ 372 x174: 8 VCM
  SG_ Unknown_174_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_174_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 374 x176: 7 Vector__XXX
- SG_ InverterVehicleSpeedSignal : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MotorVoltageSignal : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ InverterVehicleSpeedSignal2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MotorVoltageSignal2 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_176_5 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 374 x176: 7 VCM
+ SG_ AscdSpeedRequest : 39|8@0+ (1,0) [0|250] "kmh" Vector__XXX
  SG_ Unknown_176_6 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ CRC_176 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TmOutputRevs_abs : 7|16@0+ (1,0) [0|11000] "rpm" Vector__XXX
+ SG_ TmInputRevs_abs : 23|16@0+ (1,0) [0|11000] "rpm" Vector__XXX
 
 BO_ 384 x180: 8 VCM
  SG_ Unknown_180_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -150,9 +161,9 @@ BO_ 581 x245: 8 Vector__XXX
  SG_ Unknown_245_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 608 x260: 4 VCM
- SG_ AvailablePowerCluster : 0|8@1+ (1,0) [0|90] "kW" Vector__XXX
- SG_ AvailableRegenCluster : 8|8@1+ (1,0) [0|50] "kW" Vector__XXX
- SG_ MotorLoadCluster : 23|16@0+ (1,0) [0|64000] "" Vector__XXX
+ SG_ AvailableMotorPower : 6|7@0+ (1,0) [0|90] "kW" Vector__XXX
+ SG_ PowerConsumptMotor_m100_div0p05 : 23|12@0+ (0.05,-100) [-50|90] "kW" Vector__XXX
+ SG_ MotorRegenerationPowerMax : 14|7@0+ (1,0) [0|50] "kW" Vector__XXX
 
 BO_ 640 x280: 8 MA
  SG_ Unknown_280_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -263,8 +274,8 @@ BO_ 901 x385: 8 Vector__XXX
  SG_ TirePressure3 : 32|8@1+ (0.25,0) [0|0] "PSI" Vector__XXX
  SG_ TirePressure4 : 40|8@1+ (0.25,0) [0|0] "PSI" Vector__XXX
 
-BO_ 1057 x421: 1 Vector__XXX
- SG_ DashShifterPosition : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 1057 x421: 1 VCM
+ SG_ DashShifterPosition : 7|5@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1289 x509: 8 Vector__XXX
  SG_ TimeInSeconds : 10|6@1+ (1,0) [0|59] "" Vector__XXX
@@ -275,36 +286,39 @@ BO_ 1289 x509: 8 Vector__XXX
  SG_ Unknown_509_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_509_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1290 x50A: 8 Vector__XXX
- SG_ Unknown_50A_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_50A_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_50A_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ACCompressorPressure : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 1290 x50A: 8 VCM
+ SG_ AcPowerLimit_x1000_div50 : 23|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ RefrigerantPressureSnsr_div0p02 : 31|8@0+ (1,0) [0|0] "" Vector__XXX
  SG_ ACStatusBits_RestUnknown : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50A_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50A_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50A_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VcmActivation : 7|2@0+ (1,0) [0|2] "" Vector__XXX
+ SG_ Unk_50A : 14|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1293 x50D: 8 Vector__XXX
+BO_ 1293 x50D: 8 VCM
  SG_ Unknown_50D_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_50D_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_50D_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ReadyLampSignal : 23|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ ChargeLampSignal : 47|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ EvSystemWarningLight : 45|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1296 x510: 8 Vector__XXX
- SG_ CounterUnknownSlow : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ Unknown_510_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CounterUnknownFast : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+BO_ 1296 x510: 8 VCM
+ SG_ IntegratedPowerConsumptionMotor : 7|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ IntegratedPowerConsumptionAux : 23|4@0+ (1,0) [0|255] "" Vector__XXX
  SG_ ClimateControlActive : 31|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ClimateControlPowerConsumption : 25|6@1+ (1,0) [0|0] "0.25kW" Vector__XXX
- SG_ Unknown_510_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_510_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PowerConsumptionAux : 39|5@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ EcoTree : 47|5@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_510_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ OutsideAmbientTemperature : 56|8@1+ (0.5,-40) [-40|87.5] "degC" Vector__XXX
+ SG_ ChargeMode : 10|3@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ IntegratedPowerConsumptionAc : 15|5@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ EcoIndicator : 19|4@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1354 x54A: 8 Vector__XXX
  SG_ CCStatusPlusUnknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -326,15 +340,15 @@ BO_ 1355 x54B: 8 Vector__XXX
  SG_ Unknown_54B_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ FanSpeedStatusChange : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1361 x551: 8 Vector__XXX
+BO_ 1361 x551: 8 VCM
  SG_ Unknown_551_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_551_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_551_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_551_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_551_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_551_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AscdSpeedRequest_2 : 39|8@0+ (1,0) [0|250] "kmh" Vector__XXX
  SG_ Unknown_551_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_551_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AscdStatus : 46|3@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1370 x55A: 8 Vector__XXX
  SG_ InverterComBoardTemp : 8|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
@@ -342,25 +356,25 @@ BO_ 1370 x55A: 8 Vector__XXX
  SG_ IGBTDriverBoardTemperature : 24|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
  SG_ MotorTemperature : 39|8@0+ (1,0) [0|255] "dC*2" Vector__XXX
 
-BO_ 1449 x5A9: 8 Vector__XXX
+BO_ 1449 x5A9: 8 VCM
  SG_ Unknown_5A9_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ RangeInstrument : 15|12@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ RangeInstrument : 15|13@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5A9_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5A9_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5A9_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5A9_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5A9_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BatteryLevelLessThan2kw_related : 18|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1459 x5B3: 8 VCM
  SG_ BatteryPackTemperature : 0|8@1+ (1,0) [0|255] "0.25C/bit" Vector__XXX
  SG_ BatteryStateOfHealth : 9|7@1+ (1,0) [0|127] "%" Vector__XXX
- SG_ Unknown_5B3_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5B3_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5B3_4 : 33|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BatteryGIDS : 32|9@0+ (1,0) [0|511] "GIDs" Vector__XXX
- SG_ BatteryAvailableChargeBars : 51|5@1+ (1,0) [0|15] "-" Vector__XXX
- SG_ Unknown_5B3_6 : 48|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MuxedCapacityAndSOH : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5B3_4 : 34|6@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BatteryGIDS : 33|10@0+ (1,0) [0|511] "GIDs" Vector__XXX
+ SG_ BatteryAvailableChargeBars : 55|8@0+ (1,0) [0|240] "-" Vector__XXX
+ SG_ MuxedCapacityAndSOH : 60|5@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ FullChargeTime : 23|11@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ FullChargeTimeMux : 27|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1472 x5C0: 8 VCM
  SG_ LB_Historical_Data_Swich_Flag M : 6|2@1+ (1,0) [0|3] "mux" Vector__XXX
@@ -408,7 +422,7 @@ BO_ 1508 x5E4: 3 Vector__XXX
  SG_ Unknown_5E4_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5E4_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1515 x5EB: 8 Vector__XXX
+BO_ 1515 x5EB: 8 VCM
  SG_ Unknown_5EB_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -418,7 +432,7 @@ BO_ 1515 x5EB: 8 Vector__XXX
  SG_ Unknown_5EB_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1528 x5F8: 8 Vector__XXX
+BO_ 1528 x5F8: 8 VCM
  SG_ Unknown_5F8_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5F8_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5F8_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -435,7 +449,7 @@ BO_ 1529 x5F9: 8 Vector__XXX
  SG_ Unknown_5F9_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ SystemTimeMinutes : 32|6@1+ (1,0) [0|0] "" Vector__XXX
  SG_ SystemTimeHours : 43|5@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5F9_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ charge_mode_0OFF_1QC_2NCHG : 49|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5F9_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1539 x603: 8 VCM
@@ -515,6 +529,14 @@ CM_ BU_ BRAKE "Electrically-driven intelligent brake unit";
 CM_ BU_ ABS "ABS actuator and electric control unit";
 CM_ BU_ VCM "Vehicle Control Module";
 CM_ SG_ 3221225472 GIDStoClusterMaybe "Seems to *somewhat* follow GIDs";
+CM_ SG_ 3221225472 InverterVehicleSpeedSignal "???scalar of 0.0725 seems to translate roughly to mph; absolute (always positive)";
+CM_ SG_ 3221225472 MotorVoltageSignal "???might be motor volts instead of speed
+Should this message be connected with the first?";
+CM_ SG_ 3221225472 InverterVehicleSpeedSignal2 "???scalar of .0091 seems to translate roughly to mph; always positive";
+CM_ SG_ 3221225472 MotorVoltageSignal2 "??might be motor volts instead of speed
+Should this message be connected to the above?";
+CM_ SG_ 3221225472 Unknown_50A_0 "04,84,85";
+CM_ SG_ 3221225472 Unknown_50A_1 "02,13,33,40,42,53,72,73";
 CM_ BO_ 2 "Steering angle sensor signal. Goes to AV unit, Brake, and ABS modules";
 CM_ SG_ 2 SteeringAngle "Steering Angle LSB:MSB
 Left is negative
@@ -532,13 +554,7 @@ CM_ BO_ 372 "Relayed from E-Shift on EV-CAN";
 CM_ SG_ 372 ShifterPosition "AA:Park/Neutral BB:Drive 99:Reverse";
 CM_ SG_ 372 Unknown_174_4 "00...0F";
 CM_ BO_ 374 "Might be VCM relay of Inverter message of motor RPM?";
-CM_ SG_ 374 InverterVehicleSpeedSignal "???scalar of 0.0725 seems to translate roughly to mph; absolute (always positive)";
-CM_ SG_ 374 MotorVoltageSignal "???might be motor volts instead of speed
-Should this message be connected with the first?";
-CM_ SG_ 374 InverterVehicleSpeedSignal2 "???scalar of .0091 seems to translate roughly to mph; always positive";
-CM_ SG_ 374 MotorVoltageSignal2 "??might be motor volts instead of speed
-Should this message be connected to the above?";
-CM_ SG_ 374 Unknown_176_5 "00";
+CM_ SG_ 374 AscdSpeedRequest "00";
 CM_ SG_ 374 Unknown_176_6 "00";
 CM_ SG_ 374 CRC_176 "00...0F";
 CM_ BO_ 384 "VCM";
@@ -557,9 +573,9 @@ I saw these messages on CAR can when there shouldn't be activity but I was walki
 CM_ BO_ 581 "???";
 CM_ SG_ 581 Unknown_245_4 "Just ramps and wraps";
 CM_ BO_ 608 "Data for instrumentation cluster";
-CM_ SG_ 608 AvailablePowerCluster "50-5A (80-90kW) observed in normal driving, decays to 31 (51kW) around turtle";
-CM_ SG_ 608 AvailableRegenCluster "Used to generate regen bubbles with hysteresis.  Bubbles turn at @ 6,C,12,&18 and turn off at 0,6,C, & 12 respectively (6,12,18,24kW)";
-CM_ SG_ 608 MotorLoadCluster "Units are unknown (0-64000) - doesn't include accessory- It is probably the dash power display \"inner\" bubbles. 32000 at stationary, 64000 under hard acceleration, 0 at maximum regen";
+CM_ SG_ 608 AvailableMotorPower "";
+CM_ SG_ 608 PowerConsumptMotor_m100_div0p05 "";
+CM_ SG_ 608 MotorRegenerationPowerMax "";
 CM_ BO_ 640 "Instrumentation cluster output 
 TODO:
 This area might contain lots of signals, see the LAN.pdf";
@@ -631,20 +647,16 @@ CM_ SG_ 1289 TimeInSeconds "0-59";
 CM_ BO_ 1290 "VCM relay from A/C Auto Amp and AC Pressor Sensor (which is measured directly from VCM) Message is identical on EV CAN and CAR CAN (100ms)
 
 AC compressor pressure goes directly into VCM, this value is only for Consult reference";
-CM_ SG_ 1290 Unknown_50A_0 "04,84,85";
-CM_ SG_ 1290 Unknown_50A_1 "02,13,33,40,42,53,72,73";
-CM_ SG_ 1290 Unknown_50A_2 "00,a0";
-CM_ SG_ 1290 ACCompressorPressure "Some sort of pressure/temperature?? 2c-44;
-
-rises with AC on; slow decay when off";
+CM_ SG_ 1290 AcPowerLimit_x1000_div50 "";
+CM_ SG_ 1290 RefrigerantPressureSnsr_div0p02 "";
 CM_ SG_ 1290 ACStatusBits_RestUnknown "00,80  BIT1 = Rear defrost on/off";
 CM_ SG_ 1290 Unknown_50A_5 "a0";
 CM_ SG_ 1290 Unknown_50A_6 "04 , Only present in 2013+ (otherwise frame stops at 6bytes)";
 CM_ SG_ 1290 Unknown_50A_7 "00 , Only present in 2013+ (otherwise frame stops at 6bytes)";
-CM_ BO_ 1293 "???";
+CM_ BO_ 1293 "";
 CM_ BO_ 1296 "VCM relay from A/C Auto Amp, to eyebrow display and A/V unit";
-CM_ SG_ 1296 CounterUnknownSlow "Increments roughly every 6seconds";
-CM_ SG_ 1296 CounterUnknownFast "Increments roughly every second";
+CM_ SG_ 1296 IntegratedPowerConsumptionMotor "";
+CM_ SG_ 1296 IntegratedPowerConsumptionAux "Increments roughly every second";
 CM_ SG_ 1296 ClimateControlPowerConsumption "0.25kW per lsb";
 CM_ SG_ 1296 OutsideAmbientTemperature "Identical to EV CAN msg 0x54C byte 6
 
@@ -669,8 +681,8 @@ CM_ SG_ 1355 ClimateOnOrOffStatus2 "80 off, 88 on";
 CM_ SG_ 1355 Unknown_54B_3 "00,08,09,10,12 observed, mostly 09 while CC on";
 CM_ SG_ 1355 RequestedFanSpeed "1<->7 ";
 CM_ SG_ 1355 FanSpeedStatusChange "Used to alert A/V unit that fan speed is being changed by the user so the A/V can display the fan and CC settings on the display 00 no change, 01 change";
-CM_ BO_ 1361 "??? On 370Z this message contains engine coolant temp and cruise control";
-CM_ SG_ 1361 Unknown_551_4 "80 with CC on , 00 off";
+CM_ BO_ 1361 "";
+CM_ SG_ 1361 AscdSpeedRequest_2 "80 with CC on , 00 off";
 CM_ BO_ 1370 "Inverter (100ms)";
 CM_ SG_ 1370 InverterComBoardTemp "";
 CM_ SG_ 1370 IGBTTemperature "";
@@ -689,26 +701,7 @@ CM_ BO_ 1459 "VCM relayed and processed data to instrument cluster";
 CM_ SG_ 1459 BatteryPackTemperature "Probably used to drive temp bars on cluster";
 CM_ SG_ 1459 BatteryStateOfHealth "Confirmed to contain State-Of-Health (SOH)";
 CM_ SG_ 1459 BatteryGIDS "A GID is a measure used by the LEAF internally, and seems to be roughly equivalent to about 80 watt-hours. A new 24kWh LEAF will charge up to about 271 GIDs on a 100% charge when the battery is new.";
-CM_ SG_ 1459 BatteryAvailableChargeBars "Is this really 5bits? 4 would be enough to make 15DEC
-
-From EV-BUS
-Range 0-15 (Below data from test at 0%SOC, writing values to bus)
-15 = 12 chargebars on instrument cluster
-14 = 12 chargebars
-13 = 11 chargebars
-12 = 10 chargebars
-11 = 9 chargebars
-10 = 8 chargebars !
-9 = 8 chargebars !
-8 = 7 chargebars
-7 = 6 chargebars
-6 = 5 chargebars
-5 = 4 chargebars !
-4 = 4 chargebars !
-3 = 3 chargebars
-2 = 2 chargebars
-1 = 1 chargebars
-0 = 0 chargebars";
+CM_ SG_ 1459 BatteryAvailableChargeBars "0-240";
 CM_ SG_ 1459 MuxedCapacityAndSOH "Possibly capacity bargraph when D0=FE; SOH otherwise. TODO: Add mux to this message after testing";
 CM_ BO_ 1472 "Relayed LBC message from EV-CAN (500ms)";
 CM_ SG_ 1472 LB_Historical_Data_Swich_Flag "Mux for historical data signals";
@@ -784,8 +777,10 @@ VAL_ 372 ShifterPosition 170 "Park/Neutral" 187 "Drive" 153 "Reverse" ;
 VAL_ 853 ClusterUnitsSelected 0 "Kilometers" 32 "Miles" ;
 VAL_ 853 ClusterOdometerUnits 64 "Kilometers" 96 "Miles" ;
 VAL_ 856 TurnSignalStatus 0 "BothOff" 4 "Left Signal ON" 8 "Right Signal ON" 12 "Both Signals ON (Hazards)" ;
-VAL_ 1057 DashShifterPosition 24 "Neutral" 8 "Park" 32 "Drive" 16 "Reverse" 38 "ECO" ;
+VAL_ 1057 DashShifterPosition 1 "Park" 2 "Reverse" 3 "Neutral" 4 "Drive" 5 "ECO" ;
+VAL_ 1290 VcmActivation 0 "NON" 2 "READY" ;
 VAL_ 1296 ClimateControlActive 0 "CC Off" 1 "CC On" ;
+VAL_ 1296 ChargeMode 1 "110V" 2 "220V" 3 "QC" 0 "OFF" ;
 VAL_ 1355 ClimateControlStatusChange 0 "No change" 1 "Changed" ;
 VAL_ 1355 FanSpeedStatusChange 0 "No change" 1 "Change" ;
 VAL_ 1472 LB_Historical_Data_Swich_Flag 0 "Not Calculated" 1 "Maximum Data" 2 "Average Data" 3 "Minimum Data" ;

@@ -128,6 +128,7 @@ BO_ 474 x1DA: 8 INVmc
 BO_ 1465 x5B9: 7 VCM
  SG_ ActiveFuelBars : 3|5@1+ (1,0) [0|12] "-" Vector__XXX
  SG_ ChargeMinutesRemaining : 2|11@0+ (1,0) [0|2047] "minutes" Vector__XXX
+ SG_ ChargeTime_100V : 18|11@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1359 x54F: 8 HVAC
  SG_ InteriorIntakeTemp : 0|8@1+ (0.5,-14) [0|0] "degC" Vector__XXX
@@ -160,15 +161,20 @@ BO_ 282 x11A: 8 VCM
  SG_ ECOselected : 12|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 468 x1D4: 8 VCM
- SG_ MotorAmpTorqueRequest : 23|12@0- (0.25,0) [0|1024] "Nm" Vector__XXX
+ SG_ TargetMotorTorque : 23|12@0- (0.25,0) [0|1024] "Nm" Vector__XXX
  SG_ HCM_CLOCK : 38|2@1+ (1,0) [0|3] "-" Vector__XXX
  SG_ StatusOfHighVoltagePowerSupply : 34|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ Relay_Plus_Output_Status : 46|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ CRC_1D4 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ ChargeStatus : 48|8@1+ (1,0) [0|255] "MODEMASK" Vector__XXX
+ SG_ ChargeStatus : 53|6@0+ (1,0) [0|255] "MODEMASK" Vector__XXX
+ SG_ Motor_vibratin_const_stat : 45|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Shift_position_possible : 42|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Gear_shift_ingibitor_req : 55|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MotorTqLimitUpper : 7|8@0+ (2.5,0) [0|0] "Nm" Vector__XXX
+ SG_ MotorTqLimitLower : 15|8@0+ (-2.5,0) [0|0] "Nm" Vector__XXX
 
 BO_ 498 x1F2: 8 VCM
- SG_ CommandedChargePower : 1|10@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ HvBatChargeablePower : 1|10@0+ (0.1,-10) [0|0] "" Vector__XXX
  SG_ TargetCharge_SOC : 7|1@1+ (1,0) [0|0] "modemask" Vector__XXX
  SG_ Charge_StatusTransitionReqest : 21|2@1+ (1,0) [0|3] "modemask" Vector__XXX
  SG_ Keep_SOC_Request : 20|1@1+ (1,0) [0|0] "modemask" Vector__XXX
@@ -176,6 +182,8 @@ BO_ 498 x1F2: 8 VCM
  SG_ MPRUN : 48|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_498 : 63|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ CSUM_498 : 56|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VcmMode : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DcDcConverterReqVoltage : 31|6@0+ (0.1,-10) [0|0] "V" Vector__XXX
 
 BO_ 644 x284: 8 VCM
  SG_ LeftWheelSpeedSensor : 7|16@0+ (1,0) [0|65535] "pulses" Vector__XXX
@@ -239,6 +247,7 @@ BO_ 1291 x50B: 7 VCM
  SG_ DiagMuxOn_VCM : 18|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ HCM_WakeUpSleepCmd : 30|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Batt_Heater_Mail_Send_OK : 53|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VcmActivation : 17|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1292 x50C: 6 VCM
  SG_ HCM_CLOCK_50C : 24|2@1+ (1,0) [0|0] "" Vector__XXX
@@ -465,13 +474,13 @@ CM_ SG_ 282 HeartbeatVCM "55,AA (alternating between these two values, heartbeat
 10101010";
 CM_ SG_ 282 ECOselected "If set, ECO mode is active and regen is increased";
 CM_ BO_ 468 "Vehicle Control Module (10ms)";
-CM_ SG_ 468 MotorAmpTorqueRequest "Requested Torque sent to inverter";
+CM_ SG_ 468 TargetMotorTorque "Requested Torque sent to inverter";
 CM_ SG_ 468 HCM_CLOCK "PRUN Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 468 StatusOfHighVoltagePowerSupply "BTONFN";
 CM_ SG_ 468 Relay_Plus_Output_Status "RLYP";
 CM_ SG_ 468 ChargeStatus "During charging, the first 3 MSBs are high, and if user aborts charge, the highest MSB will go low. Useful for detecting that charge was interrupted by user unplugging the charge cable.";
 CM_ BO_ 498 "Vehicle Control Module (10ms)";
-CM_ SG_ 498 CommandedChargePower "? 64 drive, 84-64 charge (tapers at end)";
+CM_ SG_ 498 HvBatChargeablePower "";
 CM_ SG_ 498 TargetCharge_SOC "TCSOC";
 CM_ SG_ 498 Charge_StatusTransitionReqest "CHG_STA_RQ";
 CM_ SG_ 498 Keep_SOC_Request "KEEP_SOC_REQ When the temperature in the battery pack is low outside the timer charge set time, VCM transmists a keep SOC request signal to LBC via CAN. In this case, the battery is not charged, and only battery heater is activated.";
@@ -479,6 +488,7 @@ CM_ SG_ 498 PCS_Connector_Detection "PSCONDET";
 CM_ SG_ 498 MPRUN "Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 498 Unknown_498 "unknown - may indicate charging";
 CM_ SG_ 498 CSUM_498 "Checksum. All message nibbles summed together, plus 2. End result in hex is anded with 0xF.";
+CM_ SG_ 498 VcmMode "Unknown values. Consult provides raw data 0-255";
 CM_ BO_ 644 "ABS module relayed via VCM to EV-CAN (20ms)";
 CM_ SG_ 644 LeftWheelSpeedSensor "2's comp";
 CM_ SG_ 644 RightWheelSpeedSensor "2's comp";
@@ -530,7 +540,11 @@ CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffMIN "LB_Historical_Data_Degradation_In
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffMAX "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient";
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffAVG "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient";
 CM_ SG_ 1472 LB_HistData_Cell_Voltage_MIN "Dala: Trending MIN/MAX/AVG is strange. AVG/MIN sits round 3700mV, MAX sits at 2100mV";
-CM_ BO_ 1290 "VCM relay from A/C Auto Amp and AC Pressor Sensor (which is measured directly from VCM) (100ms)
+CM_ BO_ 1290 "SEE CAR CAN FILE
+
+
+
+VCM relay from A/C Auto Amp and AC Pressor Sensor (which is measured directly from VCM) (100ms)
 
 Message is identical on EV CAN and CAR CAN";
 CM_ SG_ 1290 Unknown_50A_0 "04,84,85";
@@ -614,7 +628,6 @@ VAL_ 282 CarOnOffStatus 4 "CarOff" 8 "CarOn" ;
 VAL_ 468 StatusOfHighVoltagePowerSupply 0 "High Voltage not supplied" 1 "High Voltage supplied" ;
 VAL_ 468 Relay_Plus_Output_Status 0 "Main Relay Plus not output" 1 "Main Relay Plus ON" ;
 VAL_ 468 ChargeStatus 140 "Charging interrupted" 224 "Charging" ;
-VAL_ 498 CommandedChargePower 64 "Drive" ;
 VAL_ 498 TargetCharge_SOC 0 "100%" 1 "Deteroiration Restraint 80%" ;
 VAL_ 498 Charge_StatusTransitionReqest 0 "other" 1 "Normal Charge" 2 "Quick Charge" 3 "Stop Request" ;
 VAL_ 498 Keep_SOC_Request 0 "Normal charge mode (Initial Value)" 1 "Keep SOC charge mode" ;
@@ -629,6 +642,7 @@ VAL_ 1472 LB_HEATEXIST 0 "Without Battery Heating" 1 "With Battery Heating" ;
 VAL_ 1291 DiagMuxOn_VCM 0 "Storage of CAN mute/absent failures not authorized" 1 "Storage of CAN mute/absent failures" ;
 VAL_ 1291 HCM_WakeUpSleepCmd 0 "GoToSleep" 1 "reserved" 2 "reserved" 3 "WakeUp" ;
 VAL_ 1291 Batt_Heater_Mail_Send_OK 0 "Mail send NG" 1 "Mail send OK" ;
+VAL_ 1291 VcmActivation 0 "NON" 2 "READY" ;
 VAL_ 912 OBC_Status_AC_Voltage 0 "No Signal" 1 "100V" 2 "200V" 3 "Abnormal Wave" ;
 VAL_ 912 OBC_Flag_QC_Relay_On_Announcemen 1 "Announce OFF" 2 "Announce ON" ;
 VAL_ 912 OBC_Flag_QC_IR_Sensor 0 "Without" 1 "With" ;
