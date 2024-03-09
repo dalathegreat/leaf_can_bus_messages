@@ -60,6 +60,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ LB_HistData_Degrade_IntRes_Coeff : 33|7@1+ (1,0) [0|100] "%" Vector__XXX
  SG_ LB_Historical_Data_Cell_Voltage : 42|6@1+ (1,0) [0|4380] "mV" Vector__XXX
  SG_ DiagSomething2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OBC_NormalChargePortConnection : 43|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1468 x5BC: 8 HVBAT
  SG_ LB_Remain_Capacity_GIDS : 7|10@0+ (1,0) [0|500] "gids" Vector__XXX
@@ -103,7 +104,8 @@ BO_ 1370 x55A: 8 INVmc
  SG_ MotorTemperature : 32|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
  SG_ InverterComBoardTemp : 8|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
  SG_ IGBTTemperature : 16|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
- SG_ IGBTDriverBoardTemperature : 24|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
+ SG_ IGBTDriverBoardTemperature : 29|6@0+ (1,0) [0|255] "dC*2" Vector__XXX
+ SG_ INV_SleepEnabled : 60|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 476 x1DC: 8 HVBAT
  SG_ LB_Discharge_Power_Limit : 7|10@0+ (0.25,0) [0|254] "kW" Vector__XXX
@@ -146,19 +148,25 @@ BO_ 1356 x54C: 8 HVAC
 
 BO_ 282 x11A: 8 VCM
  SG_ JoystickGearPosition : 4|4@1+ (1,0) [0|0] "-" Vector__XXX
- SG_ CarOnOffStatus : 13|3@1+ (1,0) [0|0] "-" Vector__XXX
+ SG_ CarOnOffStatus : 15|2@0+ (1,0) [0|0] "-" Vector__XXX
  SG_ Mulitplexor M : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown0 m0 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown1 m1 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown2 m2 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown3 m3 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SteeringWheelButton : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_5 : 21|3@0+ (1,0) [0|0] "" Vector__XXX
  SG_ HeartbeatVCM : 24|8@1+ (1,0) [85|170] "" Vector__XXX
  SG_ Unknown_11A_4_0 m0 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_1 m1 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_2 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_3 m3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ECOselected : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_1_1 : 9|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_2 : 18|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_6 : 22|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_7 : 23|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_1_2 : 10|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_1_3 : 11|1@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 468 x1D4: 8 VCM
  SG_ TargetMotorTorque : 23|12@0- (0.25,0) [0|1024] "Nm" Vector__XXX
@@ -280,9 +288,11 @@ BO_ 912 x390: 8 OBCpd
  SG_ OBC_Flag_QC_IR_Sensor : 47|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ OBC_Maximum_Charge_Power_Out : 40|9@0+ (0.1,0) [0|50] "kW" Vector__XXX
  SG_ PRUN_390 : 60|2@1+ (1,0) [0|3] "PRUN" Vector__XXX
- SG_ OBC_Charge_Status : 41|6@1+ (1,0) [0|0] "status" Vector__XXX
+ SG_ OBC_Charge_Status : 46|6@0+ (1,0) [0|0] "status" Vector__XXX
  SG_ CSUM_390 : 56|4@1+ (1,0) [0|16] "CSUM" Vector__XXX
  SG_ OBC_Charge_Power : 0|9@0+ (0.1,0) [0|50] "kW" Vector__XXX
+ SG_ OBC_SleepEnabled : 3|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ OBC_DcdcConvStatus : 26|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 915 x393: 8 OBCpd
  SG_ PRUN_393 : 60|2@1+ (1,0) [0|3] "PRUN" Vector__XXX
@@ -468,7 +478,7 @@ CM_ SG_ 282 StartupDataUnknown0 "Activity only during startup, then holds a cons
 CM_ SG_ 282 StartupDataUnknown1 "Activity only during startup, then holds a constant value for each channel";
 CM_ SG_ 282 StartupDataUnknown2 "Activity only during startup, then holds a constant value for each channel";
 CM_ SG_ 282 StartupDataUnknown3 "Activity only during startup, then holds a constant value for each channel";
-CM_ SG_ 282 SteeringWheelButton "00,04,80 observed here";
+CM_ SG_ 282 Unknown_11A_2_5 "00,04,80 observed here";
 CM_ SG_ 282 HeartbeatVCM "55,AA (alternating between these two values, heartbeat?)
 01010101
 10101010";
