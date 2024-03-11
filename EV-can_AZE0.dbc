@@ -96,7 +96,7 @@ BO_ 1371 x55B: 8 HVBAT
  SG_ LB_IR_Sensor_Wave_Voltage : 39|10@0+ (1,0) [0|4990] "mV (5000/1024)" Vector__XXX
  SG_ LB_IR_Sensor_Malfunction : 40|1@1+ (1,0) [0|1] "modemask" Vector__XXX
  SG_ LB_Capacity_Empty : 55|1@1+ (1,0) [0|1] "modemask" Vector__XXX
- SG_ LB_RefusetoSleep : 53|2@1+ (1,0) [0|3] "modemask" Vector__XXX
+ SG_ LB_SleepEnabled : 53|2@0+ (1,0) [0|3] "modemask" Vector__XXX
  SG_ LB_PRUN_55B : 48|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ CRC_55B : 56|8@1+ (1,0) [0|0] "CRC" Vector__XXX
 
@@ -161,7 +161,7 @@ BO_ 282 x11A: 8 VCM
  SG_ Unknown_11A_4_2 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_3 m3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ECOselected : 12|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_11A_1_1 : 9|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ ELECTRIC_SHIFT_SYSTEM : 9|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_2_2 : 18|1@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_2_6 : 22|1@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_2_7 : 23|1@0+ (1,0) [0|0] "" Vector__XXX
@@ -627,7 +627,7 @@ VAL_ 475 LB_INTER_LOCK 0 "Not Inter Lock connected" 1 "Inter Lock connected" ;
 VAL_ 475 LB_Discharge_Power_Status 0 "Reserved" 1 "Normal limit POUT" 2 "High rate limit POUT" 3 " Immediate limit POUT" ;
 VAL_ 1371 LB_IR_Sensor_Malfunction 0 "Normal" 1 "Malfunction" ;
 VAL_ 1371 LB_Capacity_Empty 0 "Not Empty" 1 "Battery Empty" ;
-VAL_ 1371 LB_RefusetoSleep 0 "Reserved" 1 "RefuseToSleep" 2 "ReadyToSleep" 3 "Reserved" ;
+VAL_ 1371 LB_SleepEnabled 0 "Reserved" 1 "RefuseToSleep" 2 "ReadyToSleep" 3 "Reserved" ;
 VAL_ 476 LB_Charge_Power_Status 0 "Reserved" 1 "Normal limit PIN" 2 "High rate limit PIN" 3 "Immediate limit PIN" ;
 VAL_ 476 LB_BPCMAX_UPRATE 0 "BPC MAX Uprate Level 1" 1 "BPC MAX Uprate Level 2" 2 "BPC MAX Uprate Level 3" 3 "BPC MAX Uprate Level 4" 4 "BPC MAX Uprate Level 5" 5 "BPC MAX Uprate Level 6" 6 "BPC MAX Uprate Level 7" 7 "BPC MAX Uprate Level 8" ;
 VAL_ 1356 CC_BackScreenDefrost 0 "Off" 1 "On" ;
@@ -635,6 +635,7 @@ VAL_ 1356 CC_ClimateControlStatus 0 "Off" 1 "On" ;
 VAL_ 1356 CC_ACStatus 0 "Off" 1 "On" ;
 VAL_ 282 JoystickGearPosition 2 "Reverse" 3 "Neutral" 4 "Drive/B" 0 "Parked" ;
 VAL_ 282 CarOnOffStatus 4 "CarOff" 8 "CarOn" ;
+VAL_ 282 ELECTRIC_SHIFT_SYSTEM 1 "SBW_Trq_Down_Req" 3 "ELECTRIC_SHIFT_SYSTEM" 0 "NO_ERROR" ;
 VAL_ 468 StatusOfHighVoltagePowerSupply 0 "High Voltage not supplied" 1 "High Voltage supplied" ;
 VAL_ 468 Relay_Plus_Output_Status 0 "Main Relay Plus not output" 1 "Main Relay Plus ON" ;
 VAL_ 468 ChargeStatus 140 "Charging interrupted" 224 "Charging" ;
