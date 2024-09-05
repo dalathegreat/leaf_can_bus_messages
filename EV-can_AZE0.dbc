@@ -174,12 +174,13 @@ BO_ 468 x1D4: 8 VCM
  SG_ StatusOfHighVoltagePowerSupply : 34|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ Relay_Plus_Output_Status : 46|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ CRC_1D4 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ ChargeStatus : 53|6@0+ (1,0) [0|255] "MODEMASK" Vector__XXX
+ SG_ ChargeStatus : 52|5@0+ (1,0) [0|255] "MODEMASK" Vector__XXX
  SG_ Motor_vibratin_const_stat : 45|2@0+ (1,0) [0|0] "" Vector__XXX
- SG_ Shift_position_possible : 42|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inhibitor_Pos : 42|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ Gear_shift_ingibitor_req : 55|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ MotorTqLimitUpper : 7|8@0+ (2.5,0) [0|0] "Nm" Vector__XXX
  SG_ MotorTqLimitLower : 15|8@0+ (-2.5,0) [0|0] "Nm" Vector__XXX
+ SG_ BrakePedalPressed : 53|1@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 498 x1F2: 8 VCM
  SG_ HvBatChargeablePower : 1|10@0+ (0.1,-10) [0|0] "" Vector__XXX
@@ -639,6 +640,7 @@ VAL_ 282 ELECTRIC_SHIFT_SYSTEM 1 "SBW_Trq_Down_Req" 3 "ELECTRIC_SHIFT_SYSTEM" 0 
 VAL_ 468 StatusOfHighVoltagePowerSupply 0 "High Voltage not supplied" 1 "High Voltage supplied" ;
 VAL_ 468 Relay_Plus_Output_Status 0 "Main Relay Plus not output" 1 "Main Relay Plus ON" ;
 VAL_ 468 ChargeStatus 140 "Charging interrupted" 224 "Charging" ;
+VAL_ 468 Inhibitor_Pos 0 "NA" 1 "R" 2 "D" 3 "P" ;
 VAL_ 498 TargetCharge_SOC 0 "100%" 1 "Deteroiration Restraint 80%" ;
 VAL_ 498 Charge_StatusTransitionReqest 0 "other" 1 "Normal Charge" 2 "Quick Charge" 3 "Stop Request" ;
 VAL_ 498 Keep_SOC_Request 0 "Normal charge mode (Initial Value)" 1 "Keep SOC charge mode" ;
