@@ -106,6 +106,7 @@ BO_ 475 x1DB: 8 HVBAT
  SG_ LB_Usable_SOC : 32|7@1+ (1,0) [0|0] "" Vector__XXX
  SG_ LB_PRUN_1DB : 48|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ CRC_1DB : 56|8@1+ (1,0) [0|0] "CRC" Vector__XXX
+ SG_ LB_Current_2 : 47|12@0+ (0.5,0) [-600|400] "" Vector__XXX
 
 BO_ 1371 x55B: 8 HVBAT
  SG_ LB_SOC : 7|10@0+ (1,0) [0|1000] "%+1" Vector__XXX
@@ -254,7 +255,8 @@ BO_ 1118 x45E: 1 Vector__XXX
 BO_ 1438 x59E: 8 HVBAT
  SG_ LB_Full_Capacity_for_QC : 20|9@0+ (100,0) [0|50000] "Wh" Vector__XXX
  SG_ LB_Remain_Capacity_for_QC : 27|9@0+ (100,0) [0|50000] "Wh" Vector__XXX
- SG_ Unknown_59E_7 : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ SoC_related_correction : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ LB_Full_Capacity_for_QC_62 : 21|10@0+ (100,0) [0|62149] "Wh" Vector__XXX
 
 BO_ 1153 x481: 2 Vector__XXX
  SG_ Unknown_481_1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -278,9 +280,9 @@ BO_ 1539 x603: 8 VCM
 BO_ 1657 x679: 1 OBCpd
 
 BO_ 493 x1ED: 3 HVBAT
- SG_ Unknown_1ED_1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_1ED_2 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_1ED_3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MAX_POWER_FOR_CHARGER : 7|11@0+ (0.1,10) [0|204] "kW" Vector__XXX
+ SG_ prun_0x1ed : 9|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ crc_0x1ed : 23|8@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 450 x1C2: 1 HVBAT
  SG_ Unknown_1C2_1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -296,14 +298,15 @@ BO_ 896 x380: 8 HVBAT
  SG_ Unknown_380_8 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1515 x5EB: 8 HVBAT
- SG_ Unknown_5EB_1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_2 : 8|6@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_4 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_5 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_6 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_7 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_5EB_8 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DataIndex : 7|3@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_2 : 4|5@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MUX_5EB : 15|4@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_4 : 11|4@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_5 : 23|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_6 : 31|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_7 : 39|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_8 : 47|10@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_5EB_9 : 53|14@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1471 x5BF: 8 HVBAT
  SG_ Unknown_5BF_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -549,6 +552,7 @@ CM_ SG_ 475 LB_Voltage_Latch_Flag "0->1:Cell Voltage Latch
 CM_ SG_ 475 LB_Usable_SOC "Contains SOC for dash. LB_USABLE_SOC is a 1% resolution 'proper' SOC calculated by the LBC and used by ABB chargers and the SOC display in the dash menu as well as the 3-light charging indicator on top of the dash [Needs to be copied to this location when doing 40/62kWh swaps into AZE0]";
 CM_ SG_ 475 LB_PRUN_1DB "MPR1DB Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 475 CRC_1DB "CRC";
+CM_ SG_ 475 LB_Current_2 "Only 62 kWh leaf";
 CM_ BO_ 1371 "Lithium Battery Controller (100ms)";
 CM_ SG_ 1371 LB_SOC "State of charge. LB_SOC is a 0.1% resolution SOC that is used on startup by Leaf Spy Pro and then ignored in favor of 0x7BB groups, and seemingly used nowhere in the car";
 CM_ SG_ 1371 LB_ALU_ANSWER "HCM:B2h LBC:AAh HCM:5Dh LBC:55h
@@ -699,7 +703,8 @@ CM_ BO_ 1118 "??? Unknown sender module(Also empty)";
 CM_ BO_ 1438 "Lithium Battery Controller (500ms)";
 CM_ SG_ 1438 LB_Full_Capacity_for_QC "";
 CM_ SG_ 1438 LB_Remain_Capacity_for_QC "";
-CM_ SG_ 1438 Unknown_59E_7 "CRC? Something else? Static in log, 0xAC";
+CM_ SG_ 1438 SoC_related_correction "";
+CM_ SG_ 1438 LB_Full_Capacity_for_QC_62 "Only 62 kW";
 CM_ BO_ 1153 "??? Unknown sender module (500ms)";
 CM_ SG_ 1153 Unknown_481_1 "Dala: Static 0x40, 0x4b while charging";
 CM_ SG_ 1153 Unknown_481_2 "Dala: Static 0x00";
@@ -746,9 +751,9 @@ CM_ SG_ 915 CSUM_393 "Deviates from other CSUM: (All nibbles summed together)-1=
 CM_ BO_ 1539 "Bootup Message, appears once during power on";
 CM_ BO_ 1657 "Bootup message, sent from OBC when J1772 plug is detected. Also sent during normal startup";
 CM_ BO_ 493 "Lithium Battery Controller (10ms) (62kWh only)";
-CM_ SG_ 493 Unknown_1ED_1 "Dala: Seems to be FF all the time in logs";
-CM_ SG_ 493 Unknown_1ED_2 "Mux?";
-CM_ SG_ 493 Unknown_1ED_3 "Mux value / CRC?";
+CM_ SG_ 493 MAX_POWER_FOR_CHARGER "";
+CM_ SG_ 493 prun_0x1ed "";
+CM_ SG_ 493 crc_0x1ed "Mux value / CRC?";
 CM_ BO_ 450 "Lithium Battery Controller (10ms)";
 CM_ SG_ 450 Unknown_1C2_1 "Dala: Loops between 0x50->0x5F, then repeats";
 CM_ BO_ 896 "Lithium Battery Controller (###ms) (Only present while quickcharging?)";
