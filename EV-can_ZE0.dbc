@@ -100,7 +100,7 @@ BO_ 1371 x55B: 8 HVBAT
  SG_ CRC_55B : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ LB_IR_Sensor_Malfunction : 40|1@1+ (1,0) [0|0] "MODEMASK" Vector__XXX
  SG_ LB_Capacity_Empty : 55|1@1+ (1,0) [0|0] "MODEMASK" Vector__XXX
- SG_ LB_RefusetoSleep : 52|2@1+ (1,0) [0|0] "MODEMASK" Vector__XXX
+ SG_ LB_RefusetoSleep : 53|2@1+ (1,0) [0|0] "MODEMASK" Vector__XXX
 
 BO_ 1370 x55A: 8 INVmc
  SG_ MotorTemperature : 32|8@1+ (0.5,0) [0|255] "dC" Vector__XXX
