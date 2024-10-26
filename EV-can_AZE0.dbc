@@ -60,6 +60,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ LB_HistData_Degrade_IntRes_Coeff : 33|7@1+ (1,0) [0|100] "%" Vector__XXX
  SG_ LB_Historical_Data_Cell_Voltage : 42|6@1+ (1,0) [0|4380] "mV" Vector__XXX
  SG_ DiagSomething2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OBC_NormalChargePortConnection : 43|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1468 x5BC: 8 HVBAT
  SG_ LB_Remain_Capacity_GIDS : 7|10@0+ (1,0) [0|500] "gids" Vector__XXX
@@ -95,7 +96,7 @@ BO_ 1371 x55B: 8 HVBAT
  SG_ LB_IR_Sensor_Wave_Voltage : 39|10@0+ (1,0) [0|4990] "mV (5000/1024)" Vector__XXX
  SG_ LB_IR_Sensor_Malfunction : 40|1@1+ (1,0) [0|1] "modemask" Vector__XXX
  SG_ LB_Capacity_Empty : 55|1@1+ (1,0) [0|1] "modemask" Vector__XXX
- SG_ LB_RefusetoSleep : 53|2@1+ (1,0) [0|3] "modemask" Vector__XXX
+ SG_ LB_SleepEnabled : 53|2@0+ (1,0) [0|3] "modemask" Vector__XXX
  SG_ LB_PRUN_55B : 48|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ CRC_55B : 56|8@1+ (1,0) [0|0] "CRC" Vector__XXX
 
@@ -103,7 +104,8 @@ BO_ 1370 x55A: 8 INVmc
  SG_ MotorTemperature : 32|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
  SG_ InverterComBoardTemp : 8|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
  SG_ IGBTTemperature : 16|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
- SG_ IGBTDriverBoardTemperature : 24|8@1+ (1,0) [0|255] "dC*2" Vector__XXX
+ SG_ IGBTDriverBoardTemperature : 29|6@0+ (1,0) [0|255] "dC*2" Vector__XXX
+ SG_ INV_SleepEnabled : 60|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 476 x1DC: 8 HVBAT
  SG_ LB_Discharge_Power_Limit : 7|10@0+ (0.25,0) [0|254] "kW" Vector__XXX
@@ -128,6 +130,7 @@ BO_ 474 x1DA: 8 INVmc
 BO_ 1465 x5B9: 7 VCM
  SG_ ActiveFuelBars : 3|5@1+ (1,0) [0|12] "-" Vector__XXX
  SG_ ChargeMinutesRemaining : 2|11@0+ (1,0) [0|2047] "minutes" Vector__XXX
+ SG_ ChargeTime_100V : 18|11@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1359 x54F: 8 HVAC
  SG_ InteriorIntakeTemp : 0|8@1+ (0.5,-14) [0|0] "degC" Vector__XXX
@@ -145,30 +148,42 @@ BO_ 1356 x54C: 8 HVAC
 
 BO_ 282 x11A: 8 VCM
  SG_ JoystickGearPosition : 4|4@1+ (1,0) [0|0] "-" Vector__XXX
- SG_ CarOnOffStatus : 13|3@1+ (1,0) [0|0] "-" Vector__XXX
+ SG_ CarOnOffStatus : 15|2@0+ (1,0) [0|0] "-" Vector__XXX
  SG_ Mulitplexor M : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown0 m0 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown1 m1 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown2 m2 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ StartupDataUnknown3 m3 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SteeringWheelButton : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_5 : 21|3@0+ (1,0) [0|0] "" Vector__XXX
  SG_ HeartbeatVCM : 24|8@1+ (1,0) [85|170] "" Vector__XXX
  SG_ Unknown_11A_4_0 m0 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_1 m1 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_2 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_11A_4_3 m3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ECOselected : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ELECTRIC_SHIFT_SYSTEM : 9|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_2 : 18|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_6 : 22|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_2_7 : 23|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_1_2 : 10|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_11A_1_3 : 11|1@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 468 x1D4: 8 VCM
- SG_ MotorAmpTorqueRequest : 23|12@0- (0.25,0) [0|1024] "Nm" Vector__XXX
+ SG_ TargetMotorTorque : 23|12@0- (0.25,0) [0|1024] "Nm" Vector__XXX
  SG_ HCM_CLOCK : 38|2@1+ (1,0) [0|3] "-" Vector__XXX
  SG_ StatusOfHighVoltagePowerSupply : 34|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ Relay_Plus_Output_Status : 46|1@1+ (1,0) [0|0] "-" Vector__XXX
  SG_ CRC_1D4 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ ChargeStatus : 48|8@1+ (1,0) [0|255] "MODEMASK" Vector__XXX
+ SG_ ChargeStatus : 52|5@0+ (1,0) [0|255] "MODEMASK" Vector__XXX
+ SG_ Motor_vibratin_const_stat : 45|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Inhibitor_Pos : 42|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Gear_shift_ingibitor_req : 55|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MotorTqLimitUpper : 7|8@0+ (2.5,0) [0|0] "Nm" Vector__XXX
+ SG_ MotorTqLimitLower : 15|8@0+ (-2.5,0) [0|0] "Nm" Vector__XXX
+ SG_ BrakePedalPressed : 53|1@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 498 x1F2: 8 VCM
- SG_ CommandedChargePower : 1|10@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ HvBatChargeablePower : 1|10@0+ (0.1,-10) [0|0] "" Vector__XXX
  SG_ TargetCharge_SOC : 7|1@1+ (1,0) [0|0] "modemask" Vector__XXX
  SG_ Charge_StatusTransitionReqest : 21|2@1+ (1,0) [0|3] "modemask" Vector__XXX
  SG_ Keep_SOC_Request : 20|1@1+ (1,0) [0|0] "modemask" Vector__XXX
@@ -176,6 +191,8 @@ BO_ 498 x1F2: 8 VCM
  SG_ MPRUN : 48|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_498 : 63|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ CSUM_498 : 56|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VcmMode : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DcDcConverterReqVoltage : 31|6@0+ (0.1,-10) [0|0] "V" Vector__XXX
 
 BO_ 644 x284: 8 VCM
  SG_ LeftWheelSpeedSensor : 7|16@0+ (1,0) [0|65535] "pulses" Vector__XXX
@@ -239,6 +256,7 @@ BO_ 1291 x50B: 7 VCM
  SG_ DiagMuxOn_VCM : 18|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ HCM_WakeUpSleepCmd : 30|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Batt_Heater_Mail_Send_OK : 53|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VcmActivation : 17|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1292 x50C: 6 VCM
  SG_ HCM_CLOCK_50C : 24|2@1+ (1,0) [0|0] "" Vector__XXX
@@ -271,9 +289,11 @@ BO_ 912 x390: 8 OBCpd
  SG_ OBC_Flag_QC_IR_Sensor : 47|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ OBC_Maximum_Charge_Power_Out : 40|9@0+ (0.1,0) [0|50] "kW" Vector__XXX
  SG_ PRUN_390 : 60|2@1+ (1,0) [0|3] "PRUN" Vector__XXX
- SG_ OBC_Charge_Status : 41|6@1+ (1,0) [0|0] "status" Vector__XXX
+ SG_ OBC_Charge_Status : 46|6@0+ (1,0) [0|0] "status" Vector__XXX
  SG_ CSUM_390 : 56|4@1+ (1,0) [0|16] "CSUM" Vector__XXX
  SG_ OBC_Charge_Power : 0|9@0+ (0.1,0) [0|50] "kW" Vector__XXX
+ SG_ OBC_SleepEnabled : 3|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ OBC_DcdcConvStatus : 26|2@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 915 x393: 8 OBCpd
  SG_ PRUN_393 : 60|2@1+ (1,0) [0|3] "PRUN" Vector__XXX
@@ -459,19 +479,19 @@ CM_ SG_ 282 StartupDataUnknown0 "Activity only during startup, then holds a cons
 CM_ SG_ 282 StartupDataUnknown1 "Activity only during startup, then holds a constant value for each channel";
 CM_ SG_ 282 StartupDataUnknown2 "Activity only during startup, then holds a constant value for each channel";
 CM_ SG_ 282 StartupDataUnknown3 "Activity only during startup, then holds a constant value for each channel";
-CM_ SG_ 282 SteeringWheelButton "00,04,80 observed here";
+CM_ SG_ 282 Unknown_11A_2_5 "00,04,80 observed here";
 CM_ SG_ 282 HeartbeatVCM "55,AA (alternating between these two values, heartbeat?)
 01010101
 10101010";
 CM_ SG_ 282 ECOselected "If set, ECO mode is active and regen is increased";
 CM_ BO_ 468 "Vehicle Control Module (10ms)";
-CM_ SG_ 468 MotorAmpTorqueRequest "Requested Torque sent to inverter";
+CM_ SG_ 468 TargetMotorTorque "Requested Torque sent to inverter";
 CM_ SG_ 468 HCM_CLOCK "PRUN Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 468 StatusOfHighVoltagePowerSupply "BTONFN";
 CM_ SG_ 468 Relay_Plus_Output_Status "RLYP";
 CM_ SG_ 468 ChargeStatus "During charging, the first 3 MSBs are high, and if user aborts charge, the highest MSB will go low. Useful for detecting that charge was interrupted by user unplugging the charge cable.";
 CM_ BO_ 498 "Vehicle Control Module (10ms)";
-CM_ SG_ 498 CommandedChargePower "? 64 drive, 84-64 charge (tapers at end)";
+CM_ SG_ 498 HvBatChargeablePower "";
 CM_ SG_ 498 TargetCharge_SOC "TCSOC";
 CM_ SG_ 498 Charge_StatusTransitionReqest "CHG_STA_RQ";
 CM_ SG_ 498 Keep_SOC_Request "KEEP_SOC_REQ When the temperature in the battery pack is low outside the timer charge set time, VCM transmists a keep SOC request signal to LBC via CAN. In this case, the battery is not charged, and only battery heater is activated.";
@@ -479,6 +499,7 @@ CM_ SG_ 498 PCS_Connector_Detection "PSCONDET";
 CM_ SG_ 498 MPRUN "Detection of frozen data. Message-PRUN-Diag. The transmitting node adds a message counter of 2bits or more to the end of the last data area (or just before the checksum). The value of the counter, which is initially 0, increments by one everytime new data is transmitted, and returned to zero when reaching the max value. The receiving node lets the first message pass without check, but for second next message and following, it check whether the counter number is different from the previous message.";
 CM_ SG_ 498 Unknown_498 "unknown - may indicate charging";
 CM_ SG_ 498 CSUM_498 "Checksum. All message nibbles summed together, plus 2. End result in hex is anded with 0xF.";
+CM_ SG_ 498 VcmMode "Unknown values. Consult provides raw data 0-255";
 CM_ BO_ 644 "ABS module relayed via VCM to EV-CAN (20ms)";
 CM_ SG_ 644 LeftWheelSpeedSensor "2's comp";
 CM_ SG_ 644 RightWheelSpeedSensor "2's comp";
@@ -530,7 +551,11 @@ CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffMIN "LB_Historical_Data_Degradation_In
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffMAX "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient";
 CM_ SG_ 1472 LB_HistData_Degr_IntRes_CoeffAVG "LB_Historical_Data_Degradation_Internal_Resistance_Coefficient";
 CM_ SG_ 1472 LB_HistData_Cell_Voltage_MIN "Dala: Trending MIN/MAX/AVG is strange. AVG/MIN sits round 3700mV, MAX sits at 2100mV";
-CM_ BO_ 1290 "VCM relay from A/C Auto Amp and AC Pressor Sensor (which is measured directly from VCM) (100ms)
+CM_ BO_ 1290 "SEE CAR CAN FILE
+
+
+
+VCM relay from A/C Auto Amp and AC Pressor Sensor (which is measured directly from VCM) (100ms)
 
 Message is identical on EV CAN and CAR CAN";
 CM_ SG_ 1290 Unknown_50A_0 "04,84,85";
@@ -603,7 +628,7 @@ VAL_ 475 LB_INTER_LOCK 0 "Not Inter Lock connected" 1 "Inter Lock connected" ;
 VAL_ 475 LB_Discharge_Power_Status 0 "Reserved" 1 "Normal limit POUT" 2 "High rate limit POUT" 3 " Immediate limit POUT" ;
 VAL_ 1371 LB_IR_Sensor_Malfunction 0 "Normal" 1 "Malfunction" ;
 VAL_ 1371 LB_Capacity_Empty 0 "Not Empty" 1 "Battery Empty" ;
-VAL_ 1371 LB_RefusetoSleep 0 "Reserved" 1 "RefuseToSleep" 2 "ReadyToSleep" 3 "Reserved" ;
+VAL_ 1371 LB_SleepEnabled 0 "Reserved" 1 "RefuseToSleep" 2 "ReadyToSleep" 3 "Reserved" ;
 VAL_ 476 LB_Charge_Power_Status 0 "Reserved" 1 "Normal limit PIN" 2 "High rate limit PIN" 3 "Immediate limit PIN" ;
 VAL_ 476 LB_BPCMAX_UPRATE 0 "BPC MAX Uprate Level 1" 1 "BPC MAX Uprate Level 2" 2 "BPC MAX Uprate Level 3" 3 "BPC MAX Uprate Level 4" 4 "BPC MAX Uprate Level 5" 5 "BPC MAX Uprate Level 6" 6 "BPC MAX Uprate Level 7" 7 "BPC MAX Uprate Level 8" ;
 VAL_ 1356 CC_BackScreenDefrost 0 "Off" 1 "On" ;
@@ -611,10 +636,11 @@ VAL_ 1356 CC_ClimateControlStatus 0 "Off" 1 "On" ;
 VAL_ 1356 CC_ACStatus 0 "Off" 1 "On" ;
 VAL_ 282 JoystickGearPosition 2 "Reverse" 3 "Neutral" 4 "Drive/B" 0 "Parked" ;
 VAL_ 282 CarOnOffStatus 4 "CarOff" 8 "CarOn" ;
+VAL_ 282 ELECTRIC_SHIFT_SYSTEM 1 "SBW_Trq_Down_Req" 3 "ELECTRIC_SHIFT_SYSTEM" 0 "NO_ERROR" ;
 VAL_ 468 StatusOfHighVoltagePowerSupply 0 "High Voltage not supplied" 1 "High Voltage supplied" ;
 VAL_ 468 Relay_Plus_Output_Status 0 "Main Relay Plus not output" 1 "Main Relay Plus ON" ;
 VAL_ 468 ChargeStatus 140 "Charging interrupted" 224 "Charging" ;
-VAL_ 498 CommandedChargePower 64 "Drive" ;
+VAL_ 468 Inhibitor_Pos 0 "NA" 1 "R" 2 "D" 3 "P" ;
 VAL_ 498 TargetCharge_SOC 0 "100%" 1 "Deteroiration Restraint 80%" ;
 VAL_ 498 Charge_StatusTransitionReqest 0 "other" 1 "Normal Charge" 2 "Quick Charge" 3 "Stop Request" ;
 VAL_ 498 Keep_SOC_Request 0 "Normal charge mode (Initial Value)" 1 "Keep SOC charge mode" ;
@@ -629,6 +655,7 @@ VAL_ 1472 LB_HEATEXIST 0 "Without Battery Heating" 1 "With Battery Heating" ;
 VAL_ 1291 DiagMuxOn_VCM 0 "Storage of CAN mute/absent failures not authorized" 1 "Storage of CAN mute/absent failures" ;
 VAL_ 1291 HCM_WakeUpSleepCmd 0 "GoToSleep" 1 "reserved" 2 "reserved" 3 "WakeUp" ;
 VAL_ 1291 Batt_Heater_Mail_Send_OK 0 "Mail send NG" 1 "Mail send OK" ;
+VAL_ 1291 VcmActivation 0 "NON" 2 "READY" ;
 VAL_ 912 OBC_Status_AC_Voltage 0 "No Signal" 1 "100V" 2 "200V" 3 "Abnormal Wave" ;
 VAL_ 912 OBC_Flag_QC_Relay_On_Announcemen 1 "Announce OFF" 2 "Announce ON" ;
 VAL_ 912 OBC_Flag_QC_IR_Sensor 0 "Without" 1 "With" ;
