@@ -170,14 +170,14 @@ BO_ 640 x280: 8 MA
  SG_ Unknown_280_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ VehicleSpeedCluster : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VehicleSpeedCluster : 39|16@0+ (0.01,0) [0|0] "km/h" Vector__XXX
  SG_ Unknown_280_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 644 x284: 8 ABS
  SG_ Wheel_Speed_FR : 7|16@0+ (0.005,0) [0|327] "km/h" Vector__XXX
  SG_ Wheel_Speed_FL : 23|16@0+ (0.005,0) [0|327] "km/h" Vector__XXX
- SG_ VehicleSpeedFromABS : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VehicleSpeedFromABS : 39|16@0+ (0.01,0) [0|0] "" Vector__XXX
  SG_ DistanceTraveled1 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ DistanceTraveled2 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
