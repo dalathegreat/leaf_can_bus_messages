@@ -94,7 +94,7 @@ BO_ 374 x176: 7 VCM
  SG_ TmOutputRevs_abs : 7|16@0+ (1,0) [0|11000] "rpm" Vector__XXX
  SG_ TmInputRevs_abs : 23|16@0+ (1,0) [0|11000] "rpm" Vector__XXX
 
-BO_ 384 x180: 8 VCM
+BO_ 384 x180_TorqueControl_RN1: 8 VCM
  SG_ Unknown_180_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_180_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ MotorAmp : 23|12@0- (1,0) [0|0] "" Vector__XXX
@@ -160,12 +160,12 @@ BO_ 581 x245: 8 ABS
  SG_ VDC_TorqueDownRequest_2 : 55|12@0+ (2.5,0) [0|5115] "Nm" Vector__XXX
  SG_ Unknown_245_7 : 56|4@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 608 x260: 4 VCM
+BO_ 608 x260_HMI_GeneralData4: 4 VCM
  SG_ AvailableMotorPower : 6|7@0+ (1,0) [0|90] "kW" Vector__XXX
  SG_ PowerConsumptMotor_m100_div0p05 : 23|12@0+ (0.05,-100) [-50|90] "kW" Vector__XXX
  SG_ MotorRegenerationPowerMax : 14|7@0+ (1,0) [0|50] "kW" Vector__XXX
 
-BO_ 640 x280: 8 MA
+BO_ 640 x280_BasicInfo_1: 8 MA
  SG_ Unknown_280_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -231,7 +231,7 @@ BO_ 849 x351: 8 Vector__XXX
  SG_ Unknown_351_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_351_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 852 x354: 8 ABS
+BO_ 852 x354_Brake_GeneralData: 8 ABS
  SG_ VehicleSpeedABS : 7|16@0+ (1,0) [0|65535] "pulses" Vector__XXX
  SG_ Unknown_354_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_354_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -240,7 +240,7 @@ BO_ 852 x354: 8 ABS
  SG_ Unknown_354_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_354_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 853 x355: 8 MA
+BO_ 853 x355_BasicInfo_2: 8 MA
  SG_ VehicleSpeedToVCM : 7|16@0+ (0.01,0) [0|0] "" Vector__XXX
  SG_ VehicleSpeedToVCM2 : 23|16@0+ (0.01,0) [0|0] "" Vector__XXX
  SG_ ClusterUnitsSelected : 32|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -258,7 +258,7 @@ BO_ 856 x358: 8 Vector__XXX
  SG_ Unknown_358_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_358_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 861 x35D: 8 Vector__XXX
+BO_ 861 x35D_SystemControl: 8 BCM
  SG_ Unknown_35D_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_35D_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_35D_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -274,7 +274,7 @@ BO_ 901 x385: 8 Vector__XXX
  SG_ TirePressure3 : 32|8@1+ (0.25,0) [0|0] "PSI" Vector__XXX
  SG_ TirePressure4 : 40|8@1+ (0.25,0) [0|0] "PSI" Vector__XXX
 
-BO_ 1057 x421: 1 VCM
+BO_ 1057 x421_ATCVT_to_MNI_RN1: 1 VCM
  SG_ DashShifterPosition : 7|5@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1289 x509: 8 Vector__XXX
@@ -296,7 +296,7 @@ BO_ 1290 x50A: 8 VCM
  SG_ VcmActivation : 7|2@0+ (1,0) [0|2] "" Vector__XXX
  SG_ PRUN_50A : 14|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1293 x50D: 8 VCM
+BO_ 1293 x50D_HMI_GeneralData1: 8 VCM
  SG_ Unknown_50D_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -307,7 +307,7 @@ BO_ 1293 x50D: 8 VCM
  SG_ ChargeLampSignal : 47|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ EvSystemWarningLight : 45|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1296 x510: 8 VCM
+BO_ 1296 x510_HMI_GeneralData2: 8 VCM
  SG_ IntegratedPowerConsumptionMotor : 7|8@0+ (1,0) [0|255] "" Vector__XXX
  SG_ IntegratedPowerConsumptionAux : 23|4@0+ (1,0) [0|255] "" Vector__XXX
  SG_ ClimateControlActive : 31|1@1+ (1,0) [0|0] "" Vector__XXX
@@ -320,7 +320,7 @@ BO_ 1296 x510: 8 VCM
  SG_ IntegratedPowerConsumptionAc : 15|5@0+ (1,0) [0|0] "" Vector__XXX
  SG_ EcoIndicator : 19|4@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1354 x54A: 8 Vector__XXX
+BO_ 1354 x54A_Aircon_GeneralStatus1_ITM: 8 VCM
  SG_ CCStatusPlusUnknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_54A_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_54A_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -330,7 +330,7 @@ BO_ 1354 x54A: 8 Vector__XXX
  SG_ Unknown_54A_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ AmbientTempAC : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1355 x54B: 8 Vector__XXX
+BO_ 1355 x54B_Aircon_GeneralStatus2_ITM: 8 VCM
  SG_ ClimateControlStatusChange : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ClimateOnOrOffStatus1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ClimateOnOrOffStatus2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -403,7 +403,7 @@ BO_ 1472 x5C0: 8 VCM
  SG_ LB_HistData_Cell_Voltage_MAX m1 : 42|6@1+ (40,1900) [0|4380] "mV" Vector__XXX
  SG_ LB_HistData_Cell_Voltage_AVG m2 : 42|6@1+ (40,1900) [0|4380] "mV" Vector__XXX
 
-BO_ 1477 x5C5: 8 MA
+BO_ 1477 x5C5_GeneralStatus: 8 MA
  SG_ ParkingBrakeStatus : 2|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Odometer : 15|24@0+ (1,0) [0|16777215] "km / m" Vector__XXX
  SG_ Unknown_5C5_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -422,7 +422,7 @@ BO_ 1508 x5E4: 3 Vector__XXX
  SG_ Unknown_5E4_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5E4_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1515 x5EB: 8 VCM
+BO_ 1515 x5EB_ChargeHistoryData: 8 VCM
  SG_ Unknown_5EB_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -472,7 +472,7 @@ BO_ 1540 x604: 8 Vector__XXX
  SG_ Unknown_604_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_604_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1549 x60D: 8 BCM
+BO_ 1549 x60D_GeneralStatus7: 8 BCM
  SG_ Unknown_60D_bit : 0|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BCM_ParkingLights : 1|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BCM_PassengerDoorOpen : 3|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -497,7 +497,7 @@ BO_ 1549 x60D: 8 BCM
  SG_ BCM_DoorLockStatus_DriverDoor : 20|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ BCM_DoorLockStatus_OtherDoors : 19|1@1+ (1,0) [0|1] "" Vector__XXX
 
-BO_ 1573 x625: 6 BCM
+BO_ 1573 x625_GeneralStatus: 6 BCM
  SG_ Unknown_625_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ HeadlightFoglightStatus : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_625_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -626,9 +626,7 @@ The odometer value on the bus is always in units appropriate for the car's inten
 CM_ BO_ 856 "Body Control Module";
 CM_ SG_ 856 HeadlightStatus "1 = ON, changes with manual control or auto";
 CM_ SG_ 856 TurnSignalStatus "See value table";
-CM_ BO_ 861 "Body Control Module (Please investigate)
-
-Possibly Similar to 370z, if so there's wiper data here";
+CM_ BO_ 861 "Body Control Module";
 CM_ BO_ 901 "Tire Pressure Monitoring System";
 CM_ SG_ 901 TirePressure1 "FL?";
 CM_ SG_ 901 TirePressure2 "FR?";
@@ -732,9 +730,8 @@ CM_ SG_ 1477 ParkingBrakeStatus "This is the parking brake (which is foot-operat
 CM_ SG_ 1477 Odometer "Odo is handled by the cluster display and is transmitted to body control module, AV, and VCM";
 CM_ BO_ 1507 "???";
 CM_ BO_ 1508 "???";
-CM_ BO_ 1515 "??? Only active when driving
-
-Might be various bit flags to turn on warning lights in the dash cluster";
+CM_ BO_ 1515 "Only active when driving
+";
 CM_ BO_ 1528 "???";
 CM_ SG_ 1528 Unknown_5F8_0 "Increments once a minute?";
 CM_ BO_ 1529 "???";
@@ -762,9 +759,7 @@ CM_ SG_ 1549 BCM_RightTurnSignalFeedback "Not the control, but the actual light"
 CM_ SG_ 1549 BCM_HighBeamLights "1 - high beam lights (together with 1-2 bits of the byte #0) TODO: Verify this";
 CM_ SG_ 1549 BCM_LeftTurnSignalCommand "Control Value";
 CM_ SG_ 1549 BCM_RightTurnSignalCommand "Control Value";
-CM_ BO_ 1573 "Body Control Module?
-
-Funfact, In 370z there are climate related statuses in this message";
+CM_ BO_ 1573 "USM";
 CM_ SG_ 1573 HeadlightFoglightStatus "00: Lights off 60: Headlights on 40: Parking Lights on 68:Headlights and fog lights";
 CM_ BO_ 1666 "Wake up message
 
