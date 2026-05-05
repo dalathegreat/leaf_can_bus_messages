@@ -61,20 +61,21 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ LB_Historical_Data_Cell_Voltage : 42|6@1+ (1,0) [0|4380] "mV" Vector__XXX
  SG_ DiagSomething2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ OBC_NormalChargePortConnection : 43|2@0+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 1468 x5BC: 8 HVBAT
- SG_ LB_Remain_Capacity_GIDS : 7|10@0+ (1,0) [0|500] "gids" Vector__XXX
- SG_ LB_Remaining_Capacity_Segments : 16|8@1+ (1,0) [0|240] "" Vector__XXX
- SG_ LB_Temperature_Segment_For_Dash : 24|8@1+ (0.4166666,0) [0|100] "%" Vector__XXX
- SG_ LB_Capacity_Deterioration_Rate : 33|7@1+ (1,0) [0|100] "%" Vector__XXX
- SG_ LB_Remain_Cap_Segment_Swit_Flag : 32|1@1+ (1,0) [0|1] "status" Vector__XXX
- SG_ LB_Output_Power_Limit_Reason : 45|3@1+ (1,0) [0|7] "modemask" Vector__XXX
- SG_ LB_Remain_Charge_Time_Condition : 41|5@0+ (1,0) [0|30] "modemask" Vector__XXX
- SG_ LB_Remain_Charge_Time : 52|13@0+ (1,0) [0|8190] "minutes" Vector__XXX
  SG_ Mux_5BC M : 32|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ChargeBars m8 : 20|4@1+ (1,0) [0|15] "-" Vector__XXX
  SG_ CapacityBars m9 : 20|4@1+ (1,0) [0|15] "-" Vector__XXX
- SG_ LB_MaxGIDS : 44|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1468 x5BC: 8 HVBAT
+ SG_ LB_Remain_Capacity_GIDS : 7|10@0+ (1,0) [0|500] "gids" Vector__XXX
+ SG_ LB_Remaining_Capacity_Segments_0 m0 : 16|8@1+ (1,0) [0|240] "" Vector__XXX
+ SG_ LB_Temperature_Segment_For_Dash : 24|8@1+ (0.4166666,0) [0|100] "%" Vector__XXX
+ SG_ LB_Capacity_Deterioration_Rate : 33|7@1+ (1,0) [0|100] "%" Vector__XXX
+ SG_ LB_Remain_Cap_Segment_Swit_Flag M : 32|1@1+ (1,0) [0|1] "status" Vector__XXX
+ SG_ LB_Output_Power_Limit_Reason : 45|3@1+ (1,0) [0|7] "modemask" Vector__XXX
+ SG_ LB_Remain_Charge_Time_Condition : 41|5@0+ (1,0) [0|30] "modemask" Vector__XXX
+ SG_ LB_Remain_Charge_Time : 52|13@0+ (1,0) [0|8190] "minutes" Vector__XXX
+ SG_ LB_MaxGIDS : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LB_Remaining_Capacity_Segments_1 m1 : 16|8@1+ (1,0) [0|240] "" Vector__XXX
 
 BO_ 475 x1DB: 8 HVBAT
  SG_ LB_Current : 7|11@0- (0.5,0) [-400|200] "A" Vector__XXX
@@ -338,22 +339,8 @@ CM_ SG_ 3221225472 LB_HistData_HighLow_Voltage_Time "";
 CM_ SG_ 3221225472 LB_HistData_Tempera_Wakeup_Phase "";
 CM_ SG_ 3221225472 LB_Historical_Data_Temperature "";
 CM_ SG_ 3221225472 LB_HistData_Integrated_Current "2S";
-CM_ BO_ 1468 "Lithium Battery Controller (100ms)";
-CM_ SG_ 1468 LB_Remain_Capacity_GIDS "0-281 for 24kWh, 0-363 for 30kWh, 0-498 for 40kWh, 0-775 for 62kWh
-1 LSB = 80WH
-
-LB_CAPR (aka 'gids') is an 80Wh resolution capacity indication used by the GOM and combined with LB_FULLCAP on gen1 Leafs to generate the capacity dashes behind the GOM.";
-CM_ SG_ 1468 LB_Remaining_Capacity_Segments "Contains chargebars and capacitybars, alternating depending on mux. Simplified lower down in the message";
-CM_ SG_ 1468 LB_Temperature_Segment_For_Dash "For instrumentation cluster. Unit is %, times 5/12 according to documentation, kinda strange .Should be average of the 3 sensors inside the battery pack.";
-CM_ SG_ 1468 LB_Capacity_Deterioration_Rate "SOH (State-of-Health) Effects the charge gauge, lower numbers mean more chargebars";
-CM_ SG_ 1468 LB_Remain_Cap_Segment_Swit_Flag "";
-CM_ SG_ 1468 LB_Output_Power_Limit_Reason "Indicates why power is limited";
-CM_ SG_ 1468 LB_Remain_Charge_Time_Condition "Mux for LB_Remain_charge_time
-
-00000b = Quick charge 01001b = Normal Charge 200V SOC100% 01010b = Normal Charge 200V SOC80% 10001b = Normal Charge 100V SOC100% 10010b = Normal Charge 100V SOC80% 11111b = Invalid value";
-CM_ SG_ 1468 LB_Remain_Charge_Time "1FFFh is used as \"Unavailable value\"";
-CM_ SG_ 1468 Mux_5BC "Multiplexor";
-CM_ SG_ 1468 ChargeBars "Range 0-15 (Below data from test at 0%SOC, writing values to bus)
+CM_ SG_ 3221225472 Mux_5BC "Multiplexor";
+CM_ SG_ 3221225472 ChargeBars "Range 0-15 (Below data from test at 0%SOC, writing values to bus)
 15 = 12 chargebars
 14 = 12 chargebars
 13 = 11 chargebars
@@ -370,7 +357,7 @@ CM_ SG_ 1468 ChargeBars "Range 0-15 (Below data from test at 0%SOC, writing valu
 2 = 2 chargebars
 1 = 1 chargebars
 0 = 0 chargebars";
-CM_ SG_ 1468 CapacityBars "Range 0-15 Below test data by writing to bus and seeing what happens
+CM_ SG_ 3221225472 CapacityBars "Range 0-15 Below test data by writing to bus and seeing what happens
 15 = 12 capacitybars
 14 = 12 capacitybars
 13 = 11 capacitybars
@@ -387,7 +374,22 @@ CM_ SG_ 1468 CapacityBars "Range 0-15 Below test data by writing to bus and seei
 2 = 2 capacitybars
 1 = 1 capacitybars
 0 = 0 capacitybars,";
+CM_ BO_ 1468 "Lithium Battery Controller (100ms)";
+CM_ SG_ 1468 LB_Remain_Capacity_GIDS "0-281 for 24kWh, 0-363 for 30kWh, 0-498 for 40kWh, 0-775 for 62kWh
+1 LSB = 80WH
+
+LB_CAPR (aka 'gids') is an 80Wh resolution capacity indication used by the GOM and combined with LB_FULLCAP on gen1 Leafs to generate the capacity dashes behind the GOM.";
+CM_ SG_ 1468 LB_Remaining_Capacity_Segments_0 "Remaining capacity segments (Follows LB_CAPSW)";
+CM_ SG_ 1468 LB_Temperature_Segment_For_Dash "For instrumentation cluster. Unit is %, times 5/12 according to documentation, kinda strange .Should be average of the 3 sensors inside the battery pack.";
+CM_ SG_ 1468 LB_Capacity_Deterioration_Rate "SOH (State-of-Health) Effects the charge gauge, lower numbers mean more chargebars";
+CM_ SG_ 1468 LB_Remain_Cap_Segment_Swit_Flag "";
+CM_ SG_ 1468 LB_Output_Power_Limit_Reason "Indicates why power is limited";
+CM_ SG_ 1468 LB_Remain_Charge_Time_Condition "Mux for LB_Remain_charge_time
+
+00000b = Quick charge 01001b = Normal Charge 200V SOC100% 01010b = Normal Charge 200V SOC80% 10001b = Normal Charge 100V SOC100% 10010b = Normal Charge 100V SOC80% 11111b = Invalid value";
+CM_ SG_ 1468 LB_Remain_Charge_Time "1FFFh is used as \"Unavailable value\"";
 CM_ SG_ 1468 LB_MaxGIDS "Only 30kWh AZE0 has this. When this value is 1, the GIDS number is at its maximum.(LB_Remain_Capacity_GIDS)";
+CM_ SG_ 1468 LB_Remaining_Capacity_Segments_1 "Full capacity segments (Follows LB_CAPSW)";
 CM_ BO_ 475 "Lithium Battery Controller (10ms)";
 CM_ SG_ 475 LB_Current "BatteryCurrentSignal , 2s comp, 1lSB = 0.5A";
 CM_ SG_ 475 LB_Relay_Cut_Request "00 = No-Request 01 = Main Relay OFF Request 10 = Main Relay OFF Request 11 = Main Relay OFF Request";
