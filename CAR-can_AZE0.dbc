@@ -94,7 +94,7 @@ BO_ 374 x176: 7 VCM
  SG_ TmOutputRevs_abs : 7|16@0+ (1,0) [0|11000] "rpm" Vector__XXX
  SG_ TmInputRevs_abs : 23|16@0+ (1,0) [0|11000] "rpm" Vector__XXX
 
-BO_ 384 x180_TorqueControl_RN1: 8 VCM
+BO_ 384 x180_ECM_TorqueControl_RN1: 8 VCM
  SG_ Unknown_180_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_180_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ MotorAmp : 23|12@0- (1,0) [0|0] "" Vector__XXX
@@ -160,12 +160,12 @@ BO_ 581 x245: 8 ABS
  SG_ VDC_TorqueDownRequest_2 : 55|12@0+ (2.5,0) [0|5115] "Nm" Vector__XXX
  SG_ Unknown_245_7 : 56|4@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 608 x260_HMI_GeneralData4: 4 VCM
+BO_ 608 x260_VCM_HMI_GeneralData4: 4 VCM
  SG_ AvailableMotorPower : 6|7@0+ (1,0) [0|90] "kW" Vector__XXX
  SG_ PowerConsumptMotor_m100_div0p05 : 23|12@0+ (0.05,-100) [-50|90] "kW" Vector__XXX
  SG_ MotorRegenerationPowerMax : 14|7@0+ (1,0) [0|50] "kW" Vector__XXX
 
-BO_ 640 x280_BasicInfo_1: 8 MA
+BO_ 640 x280_CLUSTER_BasicInfo_1: 8 MA
  SG_ Unknown_280_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_280_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -240,7 +240,7 @@ BO_ 852 x354_Brake_GeneralData: 8 ABS
  SG_ Unknown_354_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_354_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 853 x355_BasicInfo_2: 8 MA
+BO_ 853 x355_CLUSTER_BasicInfo_2: 8 MA
  SG_ VehicleSpeedToVCM : 7|16@0+ (0.01,0) [0|0] "" Vector__XXX
  SG_ VehicleSpeedToVCM2 : 23|16@0+ (0.01,0) [0|0] "" Vector__XXX
  SG_ ClusterUnitsSelected : 32|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -258,7 +258,7 @@ BO_ 856 x358: 8 Vector__XXX
  SG_ Unknown_358_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_358_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 861 x35D_SystemControl: 8 BCM
+BO_ 861 x35D_BCM_SystemControl: 8 BCM
  SG_ Unknown_35D_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_35D_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_35D_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -274,7 +274,7 @@ BO_ 901 x385: 8 Vector__XXX
  SG_ TirePressure3 : 32|8@1+ (0.25,0) [0|0] "PSI" Vector__XXX
  SG_ TirePressure4 : 40|8@1+ (0.25,0) [0|0] "PSI" Vector__XXX
 
-BO_ 1057 x421_ATCVT_to_MNI_RN1: 1 VCM
+BO_ 1057 x421_ATCVT_to_MMI_RN1: 1 VCM
  SG_ DashShifterPosition : 7|5@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1289 x509: 8 Vector__XXX
@@ -296,7 +296,7 @@ BO_ 1290 x50A: 8 VCM
  SG_ VcmActivation : 7|2@0+ (1,0) [0|2] "" Vector__XXX
  SG_ PRUN_50A : 14|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1293 x50D_HMI_GeneralData1: 8 VCM
+BO_ 1293 x50D_VCM_HMI_GeneralData1: 8 VCM
  SG_ Unknown_50D_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -307,7 +307,7 @@ BO_ 1293 x50D_HMI_GeneralData1: 8 VCM
  SG_ ChargeLampSignal : 47|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ EvSystemWarningLight : 45|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1296 x510_HMI_GeneralData2: 8 VCM
+BO_ 1296 x510_VCM_HMI_GeneralData2: 8 VCM
  SG_ IntegratedPowerConsumptionMotor : 7|8@0+ (1,0) [0|255] "" Vector__XXX
  SG_ IntegratedPowerConsumptionAux : 23|4@0+ (1,0) [0|255] "" Vector__XXX
  SG_ ClimateControlActive : 31|1@1+ (1,0) [0|0] "" Vector__XXX
@@ -366,7 +366,7 @@ BO_ 1449 x5A9: 8 VCM
  SG_ Unknown_5A9_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BatteryLevelLessThan2kw_related : 18|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1459 x5B3: 8 VCM
+BO_ 1459 x5B3_VCM_HMI_GeneralData3: 8 VCM
  SG_ BatteryPackTemperature : 0|8@1+ (1,0) [0|255] "0.25C/bit" Vector__XXX
  SG_ BatteryStateOfHealth : 9|7@1+ (1,0) [0|127] "%" Vector__XXX
  SG_ Unknown_5B3_4 : 34|6@1+ (1,0) [0|0] "" Vector__XXX
@@ -376,7 +376,7 @@ BO_ 1459 x5B3: 8 VCM
  SG_ FullChargeTime : 23|11@0+ (1,0) [0|0] "" Vector__XXX
  SG_ FullChargeTimeMux : 27|2@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1472 x5C0: 8 VCM
+BO_ 1472 x5C0_LBCMSG5: 8 VCM
  SG_ LB_Historical_Data_Swich_Flag M : 6|2@1+ (1,0) [0|3] "mux" Vector__XXX
  SG_ LB_Heating_Start_Send_Request : 5|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ LB_Heating_Stop_Send_Request : 4|1@1+ (1,0) [0|1] "status" Vector__XXX
@@ -403,7 +403,7 @@ BO_ 1472 x5C0: 8 VCM
  SG_ LB_HistData_Cell_Voltage_MAX m1 : 42|6@1+ (40,1900) [0|4380] "mV" Vector__XXX
  SG_ LB_HistData_Cell_Voltage_AVG m2 : 42|6@1+ (40,1900) [0|4380] "mV" Vector__XXX
 
-BO_ 1477 x5C5_GeneralStatus: 8 MA
+BO_ 1477 x5C5_CLUSTER_GeneralStatus: 8 MA
  SG_ ParkingBrakeStatus : 2|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Odometer : 15|24@0+ (1,0) [0|16777215] "km / m" Vector__XXX
  SG_ Unknown_5C5_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -422,7 +422,7 @@ BO_ 1508 x5E4: 3 Vector__XXX
  SG_ Unknown_5E4_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5E4_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1515 x5EB_ChargeHistoryData: 8 VCM
+BO_ 1515 x5EB_VCM_ChargeHistoryData1: 8 VCM
  SG_ Unknown_5EB_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5EB_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -442,7 +442,7 @@ BO_ 1528 x5F8: 8 VCM
  SG_ Unknown_5F8_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5F8_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1529 x5F9: 8 VCM
+BO_ 1529 x5F9_EV_Timer_Module: 8 VCM
  SG_ Unknown_5F9_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5F9_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_5F9_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -472,7 +472,7 @@ BO_ 1540 x604: 8 Vector__XXX
  SG_ Unknown_604_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_604_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 1549 x60D_GeneralStatus7: 8 BCM
+BO_ 1549 x60D_BCM_GeneralStatus7: 8 BCM
  SG_ Unknown_60D_bit : 0|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BCM_ParkingLights : 1|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BCM_PassengerDoorOpen : 3|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -497,7 +497,7 @@ BO_ 1549 x60D_GeneralStatus7: 8 BCM
  SG_ BCM_DoorLockStatus_DriverDoor : 20|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ BCM_DoorLockStatus_OtherDoors : 19|1@1+ (1,0) [0|1] "" Vector__XXX
 
-BO_ 1573 x625_GeneralStatus: 6 BCM
+BO_ 1573 x625_USM_GeneralStatus: 6 BCM
  SG_ Unknown_625_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ HeadlightFoglightStatus : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_625_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
