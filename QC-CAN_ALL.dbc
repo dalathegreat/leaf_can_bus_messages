@@ -46,7 +46,7 @@ BO_ 257 x101: 8 Vehicle
  SG_ MaxChargingTime10sBit : 8|8@1+ (10,0) [0|2540] "seconds" Vector__XXX
  SG_ MaxChargingTime1minBit : 16|8@1+ (1,0) [0|255] "minutes" Vector__XXX
  SG_ EstimatedChargingTime : 24|8@1+ (1,0) [0|254] "minutes" Vector__XXX
- SG_ RatedBatteryCapacity : 40|8@1+ (0.1,0) [0|100] "kWh" Vector__XXX
+ SG_ RatedBatteryCapacity : 40|16@1+ (0.1,0) [0|100] "kWh" Vector__XXX
 
 BO_ 258 x102: 8 Vehicle
  SG_ ControlProtocolNumberEV : 0|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -136,31 +136,31 @@ CM_ SG_ 258 TargetBatteryVoltage "Target charging voltage at the vehicle inlet t
 CM_ SG_ 258 ChargingCurrentRequest "Current value requested by EV during charging";
 CM_ SG_ 258 FaultBatteryVoltageDeviation "Status flag indicating whether or not the vehicle battery voltage deviates from the output voltage measured by the station
 
-Flag indicating the result of judgment regarding the difference between measured voltage of on- board battery and  Present output voltage  measured by the charger.";
+Flag indicating the result of judgment regarding the difference between measured voltage of on- board battery and �Present output voltage� measured by the charger.";
 CM_ SG_ 258 FaultHighBatteryTemperature "Status flag indicating whether or not the temperature of vehicle battery exceeds the maximum limit";
 CM_ SG_ 258 FaultBatteryCurrentDeviation "Status flag indicating whether or not the output current deviates from EV requested current
 
- If the EVSE s output exceeds the maximum charge current continually, the flag shall be changed to 1. The overcurrent threshold shall be set at 10 A (absolute value) or more, and the time threshold shall be set at 5sec or more
-- If the EVSE s input exceeds the range of the maximum discharge current continually, the flag shall be changed to 1. The overcurrent threshold shall be set at 10 A (absolute value) or more and the time threshold shall be set at 5sec or more
+ If the EVSE�s output exceeds the maximum charge current continually, the flag shall be changed to 1. The overcurrent threshold shall be set at 10 A (absolute value) or more, and the time threshold shall be set at 5sec or more
+- If the EVSE�s input exceeds the range of the maximum discharge current continually, the flag shall be changed to 1. The overcurrent threshold shall be set at 10 A (absolute value) or more and the time threshold shall be set at 5sec or more
 - The vehicle charge/discharge enabled and switch (k) shall be turned off at the same time
-- Regardless of the condition of the opto-coupler (j), if this flag is 1, it shall be considered as the vehicle s request to stop charging/discharging, and the EVSE shall move to the stop control.";
+- Regardless of the condition of the opto-coupler (j), if this flag is 1, it shall be considered as the vehicle�s request to stop charging/discharging, and the EVSE shall move to the stop control.";
 CM_ SG_ 258 FaultBatteryUndervoltage "Status flag indicating whether or not the vehicle battery voltage is less than the lower limit specified by EV";
 CM_ SG_ 258 FaultBatteryOvervoltage "Status flag indicating whether or not the vehicle battery voltage exceeds the maximum limit specified by EV
 
 Regardless of opto-coupler (j) status, the EVSE shall regard this flag as charging termination order from the vehicle if it is equal to 1, and stop charging.";
 CM_ SG_ 258 StatusNormalStopRequest "Status flag indicating the request of EV to stop charging control
 
-This value shall be updated until initial value of  Charging current request  is set. Do not update this value after initial value transmission.";
+This value shall be updated until initial value of �Charging current request� is set. Do not update this value after initial value transmission.";
 CM_ SG_ 258 StatusVehicle "Status flag indicating the EV contactor status
 
 Set the flag to 0 when the vehicle relay is closed, and set as 1 after the termination of welding detection. - Set the flag to 0 when the vehicle relay is closed, and set as 1 after the termination of welding detection.";
 CM_ SG_ 258 StatusChargingSystem "Status flag indicating malfunction caused by EV or the station, and detected by EV
 
-Update as needed, and hold  1  after the malfunction is determined.   Regardless of the condition of the opto-coupler (j), if this flag is 0, it shall be considered as the vehicle's request to stop charging/discharging, and the EVSE shall move to the stop control.";
+Update as needed, and hold �1� after the malfunction is determined. � Regardless of the condition of the opto-coupler (j), if this flag is 0, it shall be considered as the vehicle's request to stop charging/discharging, and the EVSE shall move to the stop control.";
 CM_ SG_ 258 StatusVehicleShifterPosition "Status flag indicating the shift lever position ";
 CM_ SG_ 258 StatusVehicleCharging "Status flag indicating charge permission status of EV
 
-After CAN communication starts and the vehicle sends the EVSE data required for prior to a start of charging/discharging, change the flag 0 to 1.   Change this flag 1 to 0 when the vehicle sends the  charging/discharging stop  notification to the EVSE. Regardless of the condition of the opto-coupler (j), if this flag is 0, it shall be considered as the vehicle's request to stop charging/discharging, and the EVSE shall move to the stop control.  When this flag is 0, the insulation test shall not be conducted.";
+After CAN communication starts and the vehicle sends the EVSE data required for prior to a start of charging/discharging, change the flag 0 to 1. � Change this flag 1 to 0 when the vehicle sends the �charging/discharging stop� notification to the EVSE. Regardless of the condition of the opto-coupler (j), if this flag is 0, it shall be considered as the vehicle's request to stop charging/discharging, and the EVSE shall move to the stop control.� When this flag is 0, the insulation test shall not be conducted.";
 CM_ SG_ 258 StateOfCharge "Charging rate of vehicle battery";
 CM_ SG_ 258 StatusDischargeCompatible "Flag indicating the vehicle is compatible with V2X
 
@@ -169,26 +169,26 @@ CM_ BO_ 264 "100ms Charge parameters";
 CM_ SG_ 264 EVContactorWeldingDetection "Identifier indicating whether or not the station deals with EV contactor welding detection";
 CM_ SG_ 264 AvailableOutputVoltage "Maximum output voltage value at the vehicle connector terminals. Raised to 1200 V max in Chademo 2.0
 
-Set the number from initial CAN data transmission and do not update it. If the EVSE receives  target battery voltage  exceeding this value from the vehicle, regard this situation as  Battery incompatible  and shift to charge termination process.";
+Set the number from initial CAN data transmission and do not update it. If the EVSE receives �target battery voltage� exceeding this value from the vehicle, regard this situation as �Battery incompatible� and shift to charge termination process.";
 CM_ SG_ 264 AvailableOutputCurrent "Maximum output current value of the station
 
-This value shall be set from the initial CAN communication. The initial value shall be the maximum current that can be output by the EVSE, and during the charging/discharging, the value shall be updated from time to time as the current which can be output by the EVSE. The smaller value between this value and the  maximum charge current  shall be set as the target charge current.";
+This value shall be set from the initial CAN communication. The initial value shall be the maximum current that can be output by the EVSE, and during the charging/discharging, the value shall be updated from time to time as the current which can be output by the EVSE. The smaller value between this value and the �maximum charge current� shall be set as the target charge current.";
 CM_ SG_ 264 ThresholdVoltage "Threshold voltage to stop the charging process in order to protect vehicle battery
 
-This flag may be updated until the initial value of charging current request is sent from the vehicle.  The EVSE shall compare vehicle CAN  maximum battery voltage  with charger CAN  available output voltage,  set the lower value to this value.   When circuit voltage reaches to this value, the EVSE stops charging output.";
+This flag may be updated until the initial value of charging current request is sent from the vehicle.� The EVSE shall compare vehicle CAN �maximum battery voltage� with charger CAN �available output voltage,� set the lower value to this value. � When circuit voltage reaches to this value, the EVSE stops charging output.";
 CM_ BO_ 265 "100ms Signals for error marking";
 CM_ SG_ 265 ControlProtocolNumberQC "Software version number of control protocol or charging sequences that the station deal with";
 CM_ SG_ 265 OutputVoltage "Supply voltage value of the output circuit in the station. Raised to 1200 V max in Chademo 2.0";
 CM_ SG_ 265 OutputCurrent "Supply current value of the output circuit in the station";
 CM_ SG_ 265 StatusChargerStopControl "Status flag indicating whether or not the status proceeds with shutdown process
 
-Change this flag to 0 from 1 after shifting to the start of charging control. Also, both the timing that the  charging stop control (H 109.5.5)  is changed to 0 from 1 and the timing that the  charger status (H 109.5.0)  is changed to 1 from 0 shall be in an exclusive relation. Set 1 from 0 to this flag in case the charging sequence shifts to stop process (including a state of stop process).";
+Change this flag to 0 from 1 after shifting to the start of charging control. Also, both the timing that the �charging stop control (H�109.5.5)� is changed to 0 from 1 and the timing that the �charger status (H�109.5.0)� is changed to 1 from 0 shall be in an exclusive relation. Set 1 from 0 to this flag in case the charging sequence shifts to stop process (including a state of stop process).";
 CM_ SG_ 265 FaultChargingSystemMalfunction "Status flag indicating whether or not there is a problem with EV, such as improper connection
 
 Charger shall detect error and shall shift to error stop process in case this flag is set to 1.";
 CM_ SG_ 265 FaultBatteryIncompatibility "Status flag indicating the compatibility of vehicle battery with the output voltage of station
 
-Set 1 to this flag in case  target battery voltage (H 102.1, H 102.2)  of vehicle exceeds  available output voltage (H 108.1, H 108.2)  or  Minimum battery voltage (H 100.2, H  100.3)  of vehicle is below  output voltage lower limit.\" Charger shall detect error and shall shift to error stop process in case this flag is set to 1.";
+Set 1 to this flag in case �target battery voltage (H�102.1, H�102.2)� of vehicle exceeds �available output voltage (H�108.1, H�108.2)� or �Minimum battery voltage (H�100.2, H� 100.3)� of vehicle is below �output voltage lower limit.\" Charger shall detect error and shall shift to error stop process in case this flag is set to 1.";
 CM_ SG_ 265 StatusVehicleConnectorLock "Status flag indicating the electromagnetic lock status of the vehicle
 
 Set 1 to this flag when vehicle permits charger to charge and/or voltage in output circuit exceeds 10 V. Set 0 to this flag when vehicle prohibits charger to charge and/or voltage in output circuit is less than or equal to 10 V.";
@@ -203,15 +203,15 @@ CM_ SG_ 265 RemainingChargingTime1minBit "Remaining time before the end of charg
 CM_ BO_ 512 "100ms (For V2X)";
 CM_ SG_ 512 MaximumDischargeCurrent "Maximum discharge current that the vehicle permits to the EVSE.
 
-This value shall be set according to the vehicle s battery condition in consideration of the following conditions. The initial value shall be set at 0 and the value shall be constantly updated (only when it is inevitable, e.g., for battery protection).
-At the time of the Charge/discharge mode, discharging shall be implemented with this value as the upper limit.   There are vehicles of the models before the V2H guideline 1.1 whose initial value is not set at 0. The control error shall be avoided by masking the initial value etc.   If EVSE has a bigger this value than Available input current, it does not use stopping judgment.";
+This value shall be set according to the vehicle�s battery condition in consideration of the following conditions. The initial value shall be set at 0 and the value shall be constantly updated (only when it is inevitable, e.g., for battery protection).
+At the time of the Charge/discharge mode, discharging shall be implemented with this value as the upper limit. � There are vehicles of the models before the V2H guideline 1.1 whose initial value is not set at 0. The control error shall be avoided by masking the initial value etc. � If EVSE has a bigger this value than Available input current, it does not use stopping judgment.";
 CM_ SG_ 512 MinimumDischargeVoltage "Minimum voltage that the vehicle can discharge.
 
 This value can be updated until the switch (k) is turned off. Once this value is set, it shall not be updated.";
 CM_ SG_ 512 MinimumBatteryDischargeLevel "Either sent as %, kWh or 0. This value shall be set as the minimum discharge voltage of the vehicle battery. If this value is not used, 0x00 shall be set. When the EVSE reaches this value, the EVSE prohibits only discharge. (But the EVSE can continue charge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh.";
 CM_ SG_ 512 MaxRemainingCapacityForCharging "(Optional) Maximum battery capacity with which the vehicle permits charging.
 
-This value shall be set as the maximum charging capacity of the vehicle battery.   If this value is not used, 0x00 shall be set.When the EVSE reaches this value, the EVSE prohibits only charge. (But the EVSE can continue discharge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh. Using the next expression, the EVSE converts a unit into %. Maximum charging rate for charging [%] = Maximum remaining battery capacity for charging [kWh]   Total battery capacity [kWh]   100 [%]. In addition, the EVSE cuts off a decimal and applies a unit conversion result.   When the EVSE receives 0, it shall not be used with the assumption that the value is not set.   The EVSE shall not be used until the switch (k) is turned on.";
+This value shall be set as the maximum charging capacity of the vehicle battery. � If this value is not used, 0x00 shall be set.When the EVSE reaches this value, the EVSE prohibits only charge. (But the EVSE can continue discharge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh. Using the next expression, the EVSE converts a unit into %. Maximum charging rate for charging [%] = Maximum remaining battery capacity for charging [kWh] � Total battery capacity [kWh] � 100 [%]. In addition, the EVSE cuts off a decimal and applies a unit conversion result. � When the EVSE receives 0, it shall not be used with the assumption that the value is not set. � The EVSE shall not be used until the switch (k) is turned on.";
 CM_ BO_ 513 "100ms (For V2X)";
 CM_ SG_ 513 ApproxDischargeCompletionTime "(Optional)";
 CM_ SG_ 513 AvailableVehicleEnergy "(Optional)";
