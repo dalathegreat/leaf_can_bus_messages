@@ -37,20 +37,20 @@ BU_: Vehicle QuickChargeStation
 
 
 BO_ 256 x100: 8 Vehicle
- SG_ MaximumBatteryVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ MaximumBatteryVoltage : 32|16@1+ (1,0) [0|600] "V" Vector__XXX
  SG_ ConstantOfChargingRateIndication : 48|8@1+ (1,0) [0|100] "%" Vector__XXX
  SG_ MinimumChargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
- SG_ MinumumBatteryVoltage : 23|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ MinumumBatteryVoltage : 16|16@1+ (1,0) [0|600] "V" Vector__XXX
 
 BO_ 257 x101: 8 Vehicle
  SG_ MaxChargingTime10sBit : 8|8@1+ (10,0) [0|2540] "seconds" Vector__XXX
  SG_ MaxChargingTime1minBit : 16|8@1+ (1,0) [0|255] "minutes" Vector__XXX
  SG_ EstimatedChargingTime : 24|8@1+ (1,0) [0|254] "minutes" Vector__XXX
- SG_ RatedBatteryCapacity : 47|16@0+ (0.0005,0) [0|100] "kWh" Vector__XXX
+ SG_ RatedBatteryCapacity : 40|16@1+ (0.1,0) [0|100] "kWh" Vector__XXX
 
 BO_ 258 x102: 8 Vehicle
  SG_ ControlProtocolNumberEV : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ TargetBatteryVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ TargetBatteryVoltage : 8|16@1+ (1,0) [0|600] "V" Vector__XXX
  SG_ ChargingCurrentRequest : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
  SG_ FaultBatteryVoltageDeviation : 36|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ FaultHighBatteryTemperature : 35|1@1+ (1,0) [0|1] "status" Vector__XXX
@@ -67,13 +67,13 @@ BO_ 258 x102: 8 Vehicle
 
 BO_ 264 x108: 8 QuickChargeStation
  SG_ EVContactorWeldingDetection : 0|8@1+ (1,0) [0|1] "" Vector__XXX
- SG_ AvailableOutputVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ AvailableOutputVoltage : 8|16@1+ (1,0) [0|600] "V" Vector__XXX
  SG_ AvailableOutputCurrent : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
- SG_ ThresholdVoltage : 39|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ ThresholdVoltage : 32|16@1+ (1,0) [0|600] "V" Vector__XXX
 
 BO_ 265 x109: 8 QuickChargeStation
  SG_ ControlProtocolNumberQC : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ OutputVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ OutputVoltage : 8|16@1+ (1,0) [0|600] "V" Vector__XXX
  SG_ OutputCurrent : 24|8@1+ (1,0) [0|255] "A" Vector__XXX
  SG_ StatusChargerStopControl : 45|1@1+ (1,0) [0|1] "status" Vector__XXX
  SG_ FaultChargingSystemMalfunction : 44|1@1+ (1,0) [0|1] "status" Vector__XXX
@@ -85,8 +85,8 @@ BO_ 265 x109: 8 QuickChargeStation
  SG_ RemainingChargingTime1minBit : 56|8@1+ (1,0) [0|255] "minutes" Vector__XXX
 
 BO_ 512 x200: 8 Vehicle
- SG_ MaximumDischargeCurrent : 0|8@1+ (1,0) [0|255] "A" Vector__XXX
- SG_ MinimumDischargeVoltage : 39|16@0+ (0.01,0) [0|640] "V" Vector__XXX
+ SG_ MaximumDischargeCurrent : 0|8@1+ (1,-255) [-255|255] "A" Vector__XXX
+ SG_ MinimumDischargeVoltage : 32|16@1+ (1,0) [0|640] "V" Vector__XXX
  SG_ MinimumBatteryDischargeLevel : 48|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ MaxRemainingCapacityForCharging : 56|8@1+ (1,0) [0|0] "" Vector__XXX
 
@@ -111,9 +111,9 @@ BO_ 280 x118: 8 QuickChargeStation
 
 BO_ 520 x208: 8 QuickChargeStation
  SG_ DischargeCurrent : 0|8@1+ (1,-255) [-255|0] "A" Vector__XXX
- SG_ InputVoltage : 15|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ InputVoltage : 8|16@1+ (1,0) [0|600] "V" Vector__XXX
  SG_ InputCurrent : 24|8@1+ (1,-255) [-255|0] "A" Vector__XXX
- SG_ LowerThresholdVoltage : 55|16@0+ (0.01,0) [0|600] "V" Vector__XXX
+ SG_ LowerThresholdVoltage : 48|16@1+ (1,0) [0|600] "V" Vector__XXX
 
 BO_ 521 x209: 8 QuickChargeStation
  SG_ Sequence : 0|8@1+ (1,0) [0|255] "" Vector__XXX
