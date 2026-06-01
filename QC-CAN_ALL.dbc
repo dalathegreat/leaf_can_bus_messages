@@ -87,13 +87,13 @@ BO_ 265 x109: 8 QuickChargeStation
 BO_ 512 x200: 8 Vehicle
  SG_ MaximumDischargeCurrent : 0|8@1+ (1,-255) [-255|255] "A" Vector__XXX
  SG_ MinimumDischargeVoltage : 32|16@1+ (1,0) [0|640] "V" Vector__XXX
- SG_ MinimumBatteryDischargeLevel : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ MaxRemainingCapacityForCharging : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MinimumBatteryDischargeLevel : 48|8@1+ (0.1,0) [0|255] "kWh" Vector__XXX
+ SG_ MaxRemainingCapacityForDisc_0000 : 56|8@1+ (0.1,0) [0|255] "kWh" Vector__XXX
 
 BO_ 513 x201: 8 Vehicle
  SG_ V2HchargeDischargeSequenceNum : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ApproxDischargeCompletionTime : 15|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ AvailableVehicleEnergy : 31|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ ApproxDischargeCompletionTime : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AvailableVehicleEnergy : 32|16@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1792 x700: 8 Vehicle
  SG_ AutomakerCode : 0|8@1+ (1,0) [0|255] "-" Vector__XXX
@@ -111,13 +111,13 @@ BO_ 280 x118: 8 QuickChargeStation
 
 BO_ 520 x208: 8 QuickChargeStation
  SG_ DischargeCurrent : 0|8@1+ (1,-255) [-255|0] "A" Vector__XXX
- SG_ InputVoltage : 8|16@1+ (1,0) [0|600] "V" Vector__XXX
- SG_ InputCurrent : 24|8@1+ (1,-255) [-255|0] "A" Vector__XXX
+ SG_ MaxInputVoltage : 8|16@1+ (1,0) [0|600] "V" Vector__XXX
+ SG_ MaxInputCurrent : 24|8@1+ (1,-255) [-255|0] "A" Vector__XXX
  SG_ LowerThresholdVoltage : 48|16@1+ (1,0) [0|600] "V" Vector__XXX
 
 BO_ 521 x209: 8 QuickChargeStation
  SG_ Sequence : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ RemainingDischargeTime : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ RemainingDischargeTime : 8|16@1+ (1,0) [0|65535] "" Vector__XXX
 
 
 
@@ -208,10 +208,10 @@ At the time of the Charge/discharge mode, discharging shall be implemented with 
 CM_ SG_ 512 MinimumDischargeVoltage "Minimum voltage that the vehicle can discharge.
 
 This value can be updated until the switch (k) is turned off. Once this value is set, it shall not be updated.";
-CM_ SG_ 512 MinimumBatteryDischargeLevel "Either sent as %, kWh or 0. This value shall be set as the minimum discharge voltage of the vehicle battery. If this value is not used, 0x00 shall be set. When the EVSE reaches this value, the EVSE prohibits only discharge. (But the EVSE can continue charge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh.";
-CM_ SG_ 512 MaxRemainingCapacityForCharging "(Optional) Maximum battery capacity with which the vehicle permits charging.
+CM_ SG_ 512 MinimumBatteryDischargeLevel "Either sent as %, kWh or 0. Roughly 30% of RatedBatteryCapacity. This value shall be set as the minimum discharge voltage of the vehicle battery. If this value is not used, 0x00 shall be set. When the EVSE reaches this value, the EVSE prohibits only discharge. (But the EVSE can continue charge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh.";
+CM_ SG_ 512 MaxRemainingCapacityForDisc_0000 "(Optional) Maximum battery capacity with which the vehicle permits discharging.
 
-This value shall be set as the maximum charging capacity of the vehicle battery. � If this value is not used, 0x00 shall be set.When the EVSE reaches this value, the EVSE prohibits only charge. (But the EVSE can continue discharge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh. Using the next expression, the EVSE converts a unit into %. Maximum charging rate for charging [%] = Maximum remaining battery capacity for charging [kWh] � Total battery capacity [kWh] � 100 [%]. In addition, the EVSE cuts off a decimal and applies a unit conversion result. � When the EVSE receives 0, it shall not be used with the assumption that the value is not set. � The EVSE shall not be used until the switch (k) is turned on.";
+This value shall be set as the maximum discharging capacity of the vehicle battery. � If this value is not used, 0x00 shall be set.When the EVSE reaches this value, the EVSE prohibits discharge. (But the EVSE can continue charge.) However, in case of the vehicles before the V2H guideline 1.0, the unit of this value is kWh. Using the next expression, the EVSE converts a unit into %. Maximum charging rate for charging [%] = Maximum remaining battery capacity for charging [kWh] � Total battery capacity [kWh] � 100 [%]. In addition, the EVSE cuts off a decimal and applies a unit conversion result. � When the EVSE receives 0, it shall not be used with the assumption that the value is not set. � The EVSE shall not be used until the switch (k) is turned on.";
 CM_ BO_ 513 "100ms (For V2X)";
 CM_ SG_ 513 ApproxDischargeCompletionTime "(Optional)";
 CM_ SG_ 513 AvailableVehicleEnergy "(Optional)";
@@ -223,10 +223,13 @@ CM_ BO_ 280 "100ms (Chademo v2.0 only)";
 CM_ SG_ 280 DynamicControl "Dynamic charging is supported on Chademo v2.0";
 CM_ BO_ 520 "100ms (For V2X)";
 CM_ SG_ 520 DischargeCurrent "The circuit current measured by the EVSE";
-CM_ SG_ 520 InputVoltage "The minimum voltage with which the EVSE can operate";
-CM_ SG_ 520 InputCurrent "The current with which the EVSE stops discharging in order to protect the circuit";
+CM_ SG_ 520 MaxInputVoltage "The maximum voltage with which the EVSE can operate";
+CM_ SG_ 520 MaxInputCurrent "The current with which the EVSE stops discharging in order to protect the circuit";
 CM_ SG_ 520 LowerThresholdVoltage "The voltage with which the EVSE shall stop when the vehicle cannot stop at the minimum discharge voltage of the vehicle system due to a fault";
 CM_ BO_ 521 "100ms (For V2X)";
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "SystemSignalLongSymbol" SG_ 512 MaxRemainingCapacityForDisc_0000 "MaxRemainingCapacityForDischarging";
 VAL_ 258 ControlProtocolNumberEV 1 "Chademo v1.0" 2 "Chademo v1.1" 3 "Chademo v2.0" ;
 VAL_ 258 FaultBatteryVoltageDeviation 0 "Normal" 1 "Fault" ;
 VAL_ 258 FaultHighBatteryTemperature 0 "Normal" 1 "Fault" ;
