@@ -301,11 +301,13 @@ BO_ 1293 x50D_VCM_HMI_GeneralData1: 8 VCM
  SG_ Unknown_50D_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_50D_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_50D_6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Unknown_50D_7 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50D_6 : 52|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50D_8 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ReadyLampSignal : 23|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ ChargeLampSignal : 47|2@0+ (1,0) [0|0] "" Vector__XXX
  SG_ EvSystemWarningLight : 45|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_50D_7 : 48|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VspBeepCount : 50|2@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1296 x510_VCM_HMI_GeneralData2: 8 VCM
  SG_ IntegratedPowerConsumptionMotor : 7|8@0+ (1,0) [0|255] "" Vector__XXX
@@ -514,6 +516,15 @@ BO_ 1782 x6f6: 3 Vector__XXX
  SG_ Unknown_6F6_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Unknown_6F6_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 1542 x606: 1 VSP
+ SG_ Wakeup : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1369 x559: 3 VSP
+ SG_ Status : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CurBeepSound : 8|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CurDriveSound : 12|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Unknown_559_0 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
 
 
 CM_ BU_ BCM "Body Control Module";
@@ -652,6 +663,7 @@ CM_ SG_ 1290 Unknown_50A_5 "a0";
 CM_ SG_ 1290 Unknown_50A_6 "04 , Only present in 2013+ (otherwise frame stops at 6bytes)";
 CM_ SG_ 1290 Unknown_50A_7 "00 , Only present in 2013+ (otherwise frame stops at 6bytes)";
 CM_ BO_ 1293 "";
+CM_ SG_ 1293 VspBeepCount "Send non-zero values for 3 packets to trigger beep";
 CM_ BO_ 1296 "VCM relay from A/C Auto Amp, to eyebrow display and A/V unit";
 CM_ SG_ 1296 IntegratedPowerConsumptionMotor "";
 CM_ SG_ 1296 IntegratedPowerConsumptionAux "Increments roughly every second";
@@ -768,12 +780,19 @@ CM_ BO_ 1676 "Wake up message
 
 68C on EVcan is TCU (Carwings) so it might be a relay from VCM or a log mixup";
 CM_ BO_ 1782 "???";
+CM_ BO_ 1542 "Wake up message";
+CM_ BO_ 1369 "VSP Information";
+CM_ SG_ 1369 Status "Most common value is 0x48 when receiving CAN packets or 0x68 when not receiving CAN packets.";
+CM_ SG_ 1369 CurBeepSound "Active when playing beeps";
+CM_ SG_ 1369 CurDriveSound "Active when playing the start-up or one of the drive sounds";
+CM_ SG_ 1369 Unknown_559_0 "Seems always to have the value 0x10";
 VAL_ 372 ShifterPosition 170 "Park/Neutral" 187 "Drive" 153 "Reverse" ;
 VAL_ 853 ClusterUnitsSelected 0 "Kilometers" 32 "Miles" ;
 VAL_ 853 ClusterOdometerUnits 64 "Kilometers" 96 "Miles" ;
 VAL_ 856 TurnSignalStatus 0 "BothOff" 4 "Left Signal ON" 8 "Right Signal ON" 12 "Both Signals ON (Hazards)" ;
 VAL_ 1057 DashShifterPosition 1 "Park" 2 "Reverse" 3 "Neutral" 4 "Drive" 5 "ECO" ;
 VAL_ 1290 VcmActivation 0 "NON" 2 "READY" ;
+VAL_ 1293 VspBeepCount 0 "No Beeps" 1 "One Beep" 2 "Two Beeps" 3 "Three Beeps" ;
 VAL_ 1296 ClimateControlActive 0 "CC Off" 1 "CC On" ;
 VAL_ 1296 ChargeMode 1 "110V" 2 "220V" 3 "QC" 0 "OFF" ;
 VAL_ 1355 ClimateControlStatusChange 0 "No change" 1 "Changed" ;
@@ -782,4 +801,6 @@ VAL_ 1472 LB_Historical_Data_Swich_Flag 0 "Not Calculated" 1 "Maximum Data" 2 "A
 VAL_ 1472 Batt_Heater_Mail_Send_Request 0 "No request" 1 "Mail send request" ;
 VAL_ 1477 ParkingBrakeStatus 0 "Parking brake off" 1 "Parking brake on" ;
 VAL_ 1549 BCM_VehicleState 0 "Vehicle OFF" 1 "Power button pressed once without brakes" 2 "Booting up. 2 during the startup sequence before state1 and state3 for 2 seconds" 3 "Vehicle ON (Ready or ACC)" ;
+VAL_ 1369 CurBeepSound 0 "No Beep playing" 4 "One Beep playing" 8 "Two Beeps playing" 12 "Three Beeps playing" ;
+VAL_ 1369 CurDriveSound 0 "No sound playing" 2 "Startup sound playing" 4 "Drive Start sound playing" 8 "Drive VSP sound playing" 12 "Reverse sound playing" ;
 
